@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cacg4wpghqwyp"]
+
+[ext_resource type="Texture2D" uid="uid://bo6jsfmr25rax" path="res://Untitled design-Photoroom.png" id="1_o5qli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(990.5, 105.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wfyh"]
+atlas = ExtResource("1_o5qli")
+region = Rect2(48, 265, 466, 542)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
+atlas = ExtResource("1_o5qli")
+region = Rect2(514, 265, 466, 542)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = ExtResource("1_o5qli")
+region = Rect2(980, 265, 466, 542)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("1_o5qli")
+region = Rect2(1446, 265, 466, 542)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("1_o5qli")
+region = Rect2(1912, 265, 466, 542)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mycd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wfyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyhfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(171.5, 149.5)
+
+[node name="main" type="Node2D" unique_id=1482640196]
+metadata/_edit_horizontal_guides_ = [-76.0]
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=294748118]
+
+[node name="ColorRect" type="ColorRect" parent="floor" unique_id=1234522089]
+offset_right = 993.0
+offset_bottom = 106.0
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2133595046]
+position = Vector2(495.75, 54.25)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1352863595]
+position = Vector2(19, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=983603665]
+position = Vector2(66, -75)
+scale = Vector2(0.3852848, 0.38040543)
+sprite_frames = SubResource("SpriteFrames_7mycd")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.22589816
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1496745763]
+position = Vector2(71.25, -77.75)
+shape = SubResource("RectangleShape2D_ig7tw")
