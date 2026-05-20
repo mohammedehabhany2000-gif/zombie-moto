@@ -1,24 +1,59 @@
 [gd_scene format=3 uid="uid://d4gpuqsl3o1m6"]
 
+[ext_resource type="Texture2D" uid="uid://cscqk2murxsu6" path="res://photos/finall image.jpeg" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cacg4wpghqwyp" path="res://scenes/main.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://dnmjwj73fx18u" path="res://background zombie-moto.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://rhgg2dq02bwa" path="res://photos/layer 2 background.png" id="2_iywne"]
+[ext_resource type="Texture2D" uid="uid://dnmdi6yitlojm" path="res://photos/layer 3 background.png" id="3_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=200594599]
+position = Vector2(2052, 87)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=82911771]
-position = Vector2(-766.25, 552.00006)
-scale = Vector2(0.71657985, 0.44382715)
-texture = ExtResource("1_yqjtg")
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1825505924]
+texture_filter = 2
+texture_repeat = 2
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(0, 20)
+repeat_size = Vector2(1600, 0)
+repeat_times = 6
+limit_begin = Vector2(inf_neg, inf_neg)
+limit_end = Vector2(inf, inf)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1957253490]
-position = Vector2(1189.7501, 551.0001)
-scale = Vector2(0.71657985, 0.44382718)
-texture = ExtResource("1_yqjtg")
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1303428713]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(1436, 107.36171)
+scale = Vector2(1, 1.2765957)
+texture = ExtResource("1_lbhrr")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=165123762]
-position = Vector2(3145, 549.75006)
-scale = Vector2(0.71657985, 0.440895)
-texture = ExtResource("1_yqjtg")
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=136139243]
+texture_filter = 2
+texture_repeat = 2
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(0, -44)
+repeat_size = Vector2(1600, 0)
+repeat_times = 6
+limit_begin = Vector2(inf_neg, inf_neg)
+limit_end = Vector2(inf, inf)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1439778662]
+texture_filter = 2
+position = Vector2(1435, 239)
+texture = ExtResource("2_iywne")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2097011078]
+texture_filter = 2
+texture_repeat = 2
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-1286, -52)
+repeat_size = Vector2(1308, 0)
+repeat_times = 6
+limit_begin = Vector2(inf_neg, inf_neg)
+limit_end = Vector2(inf, inf)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1763098580]
+texture_filter = 2
+position = Vector2(1288, 246)
+texture = ExtResource("3_p57ef")
 
 [node name="main" parent="." unique_id=1482640196 instance=ExtResource("1_uwrxv")]
-position = Vector2(-360, 289)
+position = Vector2(630, 124)

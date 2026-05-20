@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://day1stffx3pps"
-path="res://.godot/imported/Untitled design (2).png-b15afa5e0643959c424cd7a011d7d66b.ctex"
+uid="uid://d3p4jkyolha4y"
+path="res://.godot/imported/background zombie-moto.png-7709a6a11d5f049c7450daffb04cd450.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Untitled design (2).png"
-dest_files=["res://.godot/imported/Untitled design (2).png-b15afa5e0643959c424cd7a011d7d66b.ctex"]
+source_file="res://photos/background zombie-moto.png"
+dest_files=["res://.godot/imported/background zombie-moto.png-7709a6a11d5f049c7450daffb04cd450.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cacg4wpghqwyp"]
 
 [ext_resource type="Script" uid="uid://3kytktum38x2" path="res://scenes/scripts/player.gd" id="1_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://dlstovff3ycu2" path="res://Untitled design (2).png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://day1stffx3pps" path="res://Untitled design (2).png" id="2_0wfyh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0wfyh"]
 
@@ -48,14 +48,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(187.875, 100.125)
+size = Vector2(139.96875, 68.53125)
 
 [node name="main" type="Node2D" unique_id=1482640196]
-position = Vector2(-3, 0)
+position = Vector2(1, -75)
 metadata/_edit_horizontal_guides_ = [-76.0]
 
 [node name="pavement" type="StaticBody2D" parent="." unique_id=1040357621]
@@ -735,7 +735,7 @@ offset_bottom = 330.0
 color = Color(0.03217679, 0, 0.0024079964, 1)
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=294748118]
-position = Vector2(7, 0)
+position = Vector2(4, -3)
 
 [node name="ColorRect" type="ColorRect" parent="floor" unique_id=1234522089]
 custom_minimum_size = Vector2(0, 0.1)
@@ -758,20 +758,19 @@ position = Vector2(288, -71)
 script = ExtResource("1_0wfyh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=983603665]
-position = Vector2(-1720.759, 98)
-scale = Vector2(0.17782366, 0.103984505)
+position = Vector2(-1746.759, 119.35473)
+scale = Vector2(0.1314778, 0.07258049)
 sprite_frames = SubResource("SpriteFrames_7mycd")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.82438195
+frame_progress = 0.9133432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1496745763]
-position = Vector2(-1715.9375, 115.0625)
+position = Vector2(-1744, 131)
 shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=545915897]
-position = Vector2(-1595, 44)
-zoom = Vector2(2, 1.88)
-process_callback = 0
+position = Vector2(-1548, 63)
+limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
