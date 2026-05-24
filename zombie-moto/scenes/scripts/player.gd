@@ -1,7 +1,10 @@
 extends CharacterBody2D
+@onready var motocycle_sound=$"player sound"
+func _ready():
+	motocycle_sound.play()
 
 
-const SPEED = 600.0
+const SPEED = 900.0
 const JUMP_VELOCITY = -400.0
 
 
@@ -23,3 +26,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	var current_speed = velocity.length()
+	var maximum_moto_speed = 900
+	var speed_ratio = clamp(current_speed / maximum_moto_speed, 0, 1)
+	motocycle_sound.pitch_scale = lerp(0.55,2.3,speed_ratio)
+	$Camera2D.global_position.y = 260
+	
+	

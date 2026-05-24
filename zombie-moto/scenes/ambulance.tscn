@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dmix8mhoa4dqa"]
+
+[ext_resource type="Texture2D" uid="uid://c3lar3s6vjr4e" path="res://photos/fired car2.png" id="1_ybntd"]
+[ext_resource type="Shader" uid="uid://bqdkr4gthlev0" path="res://scenes/game.tres" id="2_f63ls"]
+[ext_resource type="Texture2D" uid="uid://cs04fxguei5x3" path="res://teaxures for fire/T_VFX_Noise_465.png" id="3_hl6l6"]
+[ext_resource type="Texture2D" uid="uid://yxb6wbisrlxb" path="res://teaxures for fire/T_VFX_Glow_1.PNG" id="4_330mf"]
+[ext_resource type="Texture2D" uid="uid://bnl2qmpjfpi61" path="res://teaxures for fire/T_1_pixel.jpg" id="5_4mo7l"]
+
+[sub_resource type="Gradient" id="Gradient_kvpfn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dinhu"]
+gradient = SubResource("Gradient_kvpfn")
+fill_from = Vector2(0.18461539, 0.82051283)
+fill_to = Vector2(0.015384615, 1)
+
+[sub_resource type="Gradient" id="Gradient_trtic"]
+offsets = PackedFloat32Array(0.99236643, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir15t"]
+gradient = SubResource("Gradient_trtic")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ca42v"]
+offsets = PackedFloat32Array(0, 0.08396947, 0.23664123, 0.40458015, 0.610687, 0.90839696)
+colors = PackedColorArray(0.38560182, 0.38560182, 0.38560182, 0, 0.7509483, 0.25278953, 0.20906562, 1, 0.9808553, 0.22658296, 0.17558163, 1, 1, 0.40863404, 0, 1, 1.0413129, 0.84753215, 0, 1, 1.0413129, 0.8994082, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rysoc"]
+gradient = SubResource("Gradient_ca42v")
+
+[sub_resource type="Gradient" id="Gradient_kvuet"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.018000001)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_trtic"]
+gradient = SubResource("Gradient_kvuet")
+fill_from = Vector2(0.37435898, 0.48205128)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tnpc"]
+shader = ExtResource("2_f63ls")
+shader_parameter/scale = Vector2(4.54, -3.01)
+shader_parameter/speed = Vector2(-3.395, 5.94)
+shader_parameter/texure1 = ExtResource("3_hl6l6")
+shader_parameter/texture2 = SubResource("GradientTexture2D_dinhu")
+shader_parameter/texure6 = SubResource("GradientTexture2D_trtic")
+shader_parameter/texure3 = ExtResource("4_330mf")
+shader_parameter/texure4 = SubResource("GradientTexture2D_ir15t")
+shader_parameter/texure5 = SubResource("GradientTexture1D_rysoc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
+size = Vector2(1019.25073, 318.73505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
+size = Vector2(935.228, 157.22534)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
+size = Vector2(587.8519, 189.73975)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(218.28784, 225.46344)
+
+[node name="car" type="StaticBody2D" unique_id=1933005371]
+scale = Vector2(0.15305378, 0.16471349)
+constant_linear_velocity = Vector2(0.025, -0.27)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=899695647]
+position = Vector2(-8.167065, -207.93628)
+texture = ExtResource("1_ybntd")
+
+[node name="static fire" type="Sprite2D" parent="." unique_id=1458092345]
+modulate = Color(2.137626, 2.137626, 2.137626, 1)
+material = SubResource("ShaderMaterial_0tnpc")
+position = Vector2(-512.36224, -310.05472)
+scale = Vector2(292.00113, 313.02567)
+texture = ExtResource("5_4mo7l")
+
+[node name="static fire2" type="Sprite2D" parent="." unique_id=1834793508]
+modulate = Color(2.137626, 2.137626, 2.137626, 1)
+material = SubResource("ShaderMaterial_0tnpc")
+position = Vector2(220.24596, -146.45322)
+scale = Vector2(204.51472, 161.68378)
+texture = ExtResource("5_4mo7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=836212679]
+position = Vector2(0, -30.355736)
+shape = SubResource("RectangleShape2D_vtaks")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1555000795]
+position = Vector2(26.134607, -145.70755)
+shape = SubResource("RectangleShape2D_kvpfn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=845472199]
+position = Vector2(52.26919, -315.6997)
+rotation = -0.23171836
+scale = Vector2(0.9999997, 0.9999999)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=936709084]
+position = Vector2(344.65082, -359.7154)
+rotation = -2.4670153
+shape = SubResource("RectangleShape2D_kvuet")

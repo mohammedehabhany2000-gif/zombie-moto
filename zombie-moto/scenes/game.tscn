@@ -1,9 +1,62 @@
 [gd_scene format=3 uid="uid://d4gpuqsl3o1m6"]
 
-[ext_resource type="Texture2D" uid="uid://cscqk2murxsu6" path="res://photos/finall image.jpeg" id="1_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cacg4wpghqwyp" path="res://scenes/main.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dmbj376a7udma" path="res://the first layer in background.jpeg" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://rhgg2dq02bwa" path="res://photos/layer 2 background.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://dnmdi6yitlojm" path="res://photos/layer 3 background.png" id="3_p57ef"]
+[ext_resource type="Texture2D" uid="uid://cnj3g1od0idf3" path="res://road photo (1).png" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dmix8mhoa4dqa" path="res://scenes/ambulance.tscn" id="5_u5sy4"]
+[ext_resource type="Script" uid="uid://3kytktum38x2" path="res://scenes/scripts/player.gd" id="6_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://c0mqfewld8ocy" path="res://Untitled design (9) (1).png" id="7_vtaks"]
+[ext_resource type="AudioStream" uid="uid://c2c5rmmxxn5w4" path="res://sounds/freesound_community-motorcycle_yamaha_tenere_250cc_enduro_idle-65457.ogg" id="8_kvpfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(135, 0, 954, 813)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(1089, 0, 954, 813)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(2043, 0, 954, 813)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(2997, 0, 954, 813)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("7_vtaks")
+region = Rect2(3951, 0, 954, 813)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mycd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyhfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(128, 67)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+distance = -637.0
 
 [node name="Game" type="Node2D" unique_id=200594599]
 position = Vector2(2052, 87)
@@ -12,8 +65,8 @@ position = Vector2(2052, 87)
 texture_filter = 2
 texture_repeat = 2
 scroll_scale = Vector2(0.1, 0.1)
-scroll_offset = Vector2(0, 20)
-repeat_size = Vector2(1600, 0)
+scroll_offset = Vector2(-1258, 234)
+repeat_size = Vector2(1306, 0)
 repeat_times = 6
 limit_begin = Vector2(inf_neg, inf_neg)
 limit_end = Vector2(inf, inf)
@@ -21,39 +74,93 @@ limit_end = Vector2(inf, inf)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1303428713]
 texture_filter = 2
 texture_repeat = 2
-position = Vector2(1436, 107.36171)
-scale = Vector2(1, 1.2765957)
-texture = ExtResource("1_lbhrr")
+position = Vector2(1436, -4.542549)
+scale = Vector2(1, 2.4422653)
+texture = ExtResource("1_iywne")
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=136139243]
-texture_filter = 2
-texture_repeat = 2
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=909087263]
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(0, -44)
+scroll_offset = Vector2(2586, 215)
 repeat_size = Vector2(1600, 0)
 repeat_times = 6
-limit_begin = Vector2(inf_neg, inf_neg)
-limit_end = Vector2(inf, inf)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1439778662]
-texture_filter = 2
-position = Vector2(1435, 239)
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=228589434]
 texture = ExtResource("2_iywne")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2097011078]
 texture_filter = 2
 texture_repeat = 2
 scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(-1286, -52)
+scroll_offset = Vector2(-1280, -69)
 repeat_size = Vector2(1308, 0)
 repeat_times = 6
 limit_begin = Vector2(inf_neg, inf_neg)
 limit_end = Vector2(inf, inf)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1763098580]
+z_as_relative = false
 texture_filter = 2
 position = Vector2(1288, 246)
 texture = ExtResource("3_p57ef")
 
-[node name="main" parent="." unique_id=1482640196 instance=ExtResource("1_uwrxv")]
-position = Vector2(630, 124)
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D3" unique_id=396003323]
+texture_repeat = 2
+position = Vector2(2295.9998, 337.8552)
+scale = Vector2(0.69025004, 0.42150107)
+texture = ExtResource("5_iywne")
+region_enabled = true
+region_rect = Rect2(0, 0, 15000, 645)
+
+[node name="car" parent="." unique_id=1933005371 instance=ExtResource("5_u5sy4")]
+position = Vector2(-6.75, 301.24997)
+
+[node name="car2" parent="." unique_id=1684219609 instance=ExtResource("5_u5sy4")]
+position = Vector2(4072, 294)
+
+[node name="car3" parent="." unique_id=51368494 instance=ExtResource("5_u5sy4")]
+position = Vector2(2246, 297)
+
+[node name="car4" parent="." unique_id=502590562 instance=ExtResource("5_u5sy4")]
+position = Vector2(5498, 303)
+
+[node name="car5" parent="." unique_id=1583293113 instance=ExtResource("5_u5sy4")]
+position = Vector2(6927, 301)
+
+[node name="car6" parent="." unique_id=510999152 instance=ExtResource("5_u5sy4")]
+position = Vector2(8525, 287)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=509900170]
+position = Vector2(699, 21)
+script = ExtResource("6_0tnpc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1787710689]
+position = Vector2(-1769, 67)
+scale = Vector2(0.1314778, 0.07257073)
+sprite_frames = SubResource("SpriteFrames_7mycd")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.2980825
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1474821541]
+position = Vector2(-1768, 69)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1543388041]
+position = Vector2(-1562, 178)
+zoom = Vector2(1.15, 1.595)
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="player sound" type="AudioStreamPlayer2D" parent="player" unique_id=543312912]
+stream = ExtResource("8_kvpfn")
+autoplay = true
+parameters/looping = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156153298]
+position = Vector2(280, -395)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1570062989]
+texture_filter = 2
+position = Vector2(-1073, 61)
+shape = SubResource("WorldBoundaryShape2D_iywne")
