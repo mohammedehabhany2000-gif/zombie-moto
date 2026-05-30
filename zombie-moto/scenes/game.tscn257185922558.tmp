@@ -6,89 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cnj3g1od0idf3" path="res://road photo (1).png" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dmix8mhoa4dqa" path="res://scenes/ambulance.tscn" id="5_u5sy4"]
 [ext_resource type="Script" uid="uid://3kytktum38x2" path="res://scenes/scripts/player.gd" id="6_0tnpc"]
-[ext_resource type="Script" uid="uid://cn3ovha6u71sf" path="res://zombie.gd" id="6_vtaks"]
 [ext_resource type="Texture2D" uid="uid://c0mqfewld8ocy" path="res://Untitled design (9) (1).png" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c2c5rmmxxn5w4" path="res://sounds/freesound_community-motorcycle_yamaha_tenere_250cc_enduro_idle-65457.ogg" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cxa2orjkk2wc5" path="res://photos/WhatsApp Image 2026-05-26 at 12.02.02 AM(2).png" id="9_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://ts75apwuy38b" path="res://photos/hole photo.png" id="11_kvpfn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(538, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(52, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(214, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(376, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(538, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(700, 184, 162, 189)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
-atlas = ExtResource("9_0tnpc")
-region = Rect2(862, 184, 162, 189)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kvpfn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ca42v")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtaks")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvpfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dinhu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trtic")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir15t")
-}],
-"loop": true,
-"name": &"run",
-"speed": 8.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
-size = Vector2(77.375, 74)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
-size = Vector2(83, 80)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dinhu"]
-radius = 19.979492
-height = 77.859375
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
-size = Vector2(4298.3125, 160.375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
-size = Vector2(16444, 171)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
 atlas = ExtResource("7_vtaks")
@@ -133,8 +53,64 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 55.107544
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(121, 67)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+distance = -637.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(52, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(214, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(376, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(538, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(700, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(862, 184, 162, 189)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca42v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvpfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvuet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trtic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir15t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(78, 73)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
@@ -199,111 +175,75 @@ region_rect = Rect2(0, 0, 30000.436, 645)
 
 [node name="ambulance2" parent="." unique_id=1933005371 instance=ExtResource("5_u5sy4")]
 position = Vector2(-9, 269)
-collision_layer = 2
 
 [node name="ambulance" parent="." unique_id=1684219609 instance=ExtResource("5_u5sy4")]
 position = Vector2(4063, 273.00003)
-collision_layer = 2
 
 [node name="ambulance3" parent="." unique_id=51368494 instance=ExtResource("5_u5sy4")]
 position = Vector2(2245, 273.00003)
-collision_layer = 2
 
 [node name="ambulance4" parent="." unique_id=502590562 instance=ExtResource("5_u5sy4")]
 position = Vector2(5565, 270)
-collision_layer = 2
 
 [node name="ambulance5" parent="." unique_id=1583293113 instance=ExtResource("5_u5sy4")]
 position = Vector2(6930, 273.00003)
-collision_layer = 2
 
 [node name="ambulance6" parent="." unique_id=510999152 instance=ExtResource("5_u5sy4")]
-position = Vector2(9386, 294.00003)
-collision_layer = 2
+position = Vector2(8525, 265.00003)
 
-[node name="zombie" type="CharacterBody2D" parent="." unique_id=89061087 node_paths=PackedStringArray("player")]
-position = Vector2(-1692, 204)
-script = ExtResource("6_vtaks")
-player = NodePath("../player")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie" unique_id=726162813]
-position = Vector2(-1510, 40)
-scale = Vector2(0.51620376, 0.5019844)
-sprite_frames = SubResource("SpriteFrames_kvpfn")
-animation = &"run"
-
-[node name="collisionshape2d" type="CollisionShape2D" parent="zombie" unique_id=413453854]
-position = Vector2(-1495, 40)
-shape = SubResource("RectangleShape2D_dinhu")
-
-[node name="Area2D" type="Area2D" parent="zombie" unique_id=1048511547]
-position = Vector2(1196.9998, 80.99999)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie/Area2D" unique_id=1246504552]
-position = Vector2(-2691.9998, -41)
-shape = SubResource("RectangleShape2D_kvuet")
-
-[node name="Timer" type="Timer" parent="zombie" unique_id=1872881271]
-wait_time = 0.5
-one_shot = true
-
-[node name="hole" type="Area2D" parent="." unique_id=1793250755]
-
-[node name="Sprite2D" type="Sprite2D" parent="hole" unique_id=297111375]
-position = Vector2(8706, 250.44891)
-scale = Vector2(0.13933331, 0.10222223)
-texture = ExtResource("11_kvpfn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hole" unique_id=334237131]
-position = Vector2(8670.999, 332)
-rotation = 1.5805588
-shape = SubResource("CapsuleShape2D_dinhu")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156153298]
-position = Vector2(280, -395)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1998171010]
-position = Vector2(10672.156, 774.8125)
-shape = SubResource("RectangleShape2D_kvpfn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1570062989]
-texture_filter = 2
-position = Vector2(47, 782)
-shape = SubResource("RectangleShape2D_trtic")
-
-[node name="player" type="CharacterBody2D" parent="." unique_id=25772425]
-position = Vector2(-1363, -66)
-collision_mask = 3
+[node name="player" type="CharacterBody2D" parent="." unique_id=509900170]
+position = Vector2(699, 21)
 script = ExtResource("6_0tnpc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=2091049997]
-position = Vector2(-1428, 66.00001)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1787710689]
+position = Vector2(-1769, 67)
 scale = Vector2(0.1314778, 0.07257073)
 sprite_frames = SubResource("SpriteFrames_7mycd")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.2980825
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=166974588]
-position = Vector2(-1429, 73)
-scale = Vector2(0.744, 0.32413796)
-shape = SubResource("CircleShape2D_0tnpc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1474821541]
+position = Vector2(-1768, 69)
+shape = SubResource("RectangleShape2D_ig7tw")
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=113100452]
-position = Vector2(-1289, 166)
-zoom = Vector2(1, 1.73)
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1543388041]
+position = Vector2(-1562, 166)
+zoom = Vector2(1.15, 1.73)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="player sound" type="AudioStreamPlayer2D" parent="player" unique_id=1278540355]
+[node name="player sound" type="AudioStreamPlayer2D" parent="player" unique_id=543312912]
 stream = ExtResource("8_kvpfn")
 autoplay = true
 parameters/looping = true
 
-[node name="Timer" type="Timer" parent="player" unique_id=1320348592]
+[node name="Timer" type="Timer" parent="player" unique_id=2123935042]
 wait_time = 2.0
 one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156153298]
+position = Vector2(280, -395)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1570062989]
+texture_filter = 2
+position = Vector2(-1073, 61)
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="Zombie" type="CharacterBody2D" parent="." unique_id=650205819]
+position = Vector2(-1692, 204)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie" unique_id=2120279615]
+position = Vector2(1334.1875, 67.43756)
+scale = Vector2(0.51620376, 0.5019844)
+sprite_frames = SubResource("SpriteFrames_ca42v")
+autoplay = "default"
+frame_progress = 0.9019004
+
+[node name="zombie" type="CollisionShape2D" parent="Zombie" unique_id=1908787045]
+position = Vector2(1333, 69)
+shape = SubResource("RectangleShape2D_0tnpc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=586059623]
 
@@ -314,19 +254,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1047857978]
-layout_mode = 0
+layout_mode = 1
 offset_left = 16.0
 offset_top = 9.0
 offset_right = 154.0
 offset_bottom = 46.0
 theme_override_styles/background = SubResource("StyleBoxFlat_gee14")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0tnpc")
-max_value = 5.0
-value = 5.0
+max_value = 3.0
+value = 3.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=2108516380]
-layout_mode = 0
+layout_mode = 1
 offset_left = 22.0
 offset_top = 16.0
 offset_right = 44.0
@@ -360,6 +300,3 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 100
 text = "YOU DIED"
-
-[connection signal="timeout" from="zombie/Timer" to="zombie" method="_on_timer_timeout"]
-[connection signal="body_entered" from="hole" to="player" method="_on_hole_body_entered"]

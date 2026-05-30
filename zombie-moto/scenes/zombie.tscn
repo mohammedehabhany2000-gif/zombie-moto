@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://g4sqfdpy1d3s"]
+
+[ext_resource type="Script" uid="uid://g13tbjkj6r5r" path="res://scenes/zombie.gd" id="1_httt1"]
+[ext_resource type="Texture2D" uid="uid://cxa2orjkk2wc5" path="res://photos/WhatsApp Image 2026-05-26 at 12.02.02 AM(2).png" id="2_xepks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("2_xepks")
+region = Rect2(538, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("2_xepks")
+region = Rect2(52, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
+atlas = ExtResource("2_xepks")
+region = Rect2(214, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("2_xepks")
+region = Rect2(376, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("2_xepks")
+region = Rect2(538, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("2_xepks")
+region = Rect2(700, 184, 162, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("2_xepks")
+region = Rect2(862, 184, 162, 189)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca42v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca42v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvpfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvuet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trtic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir15t")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
+size = Vector2(81, 81.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(64, 73)
+
+[node name="zombie" type="CharacterBody2D" unique_id=100330922]
+z_index = 1
+script = ExtResource("1_httt1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038813516]
+position = Vector2(-1396, -36)
+scale = Vector2(0.51620376, 0.5019844)
+sprite_frames = SubResource("SpriteFrames_ca42v")
+animation = &"new_animation"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2138911621]
+position = Vector2(1197, 81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=774062687]
+position = Vector2(-2492, -87)
+shape = SubResource("RectangleShape2D_vtaks")
+
+[node name="collisionshape2d" type="CollisionShape2D" parent="." unique_id=2092831345]
+position = Vector2(-1264, -5)
+shape = SubResource("RectangleShape2D_0tnpc")
+
+[node name="Timer" type="Timer" parent="." unique_id=216542019]
+wait_time = 0.5
+one_shot = true
+
+[node name="Node" type="Node" parent="." unique_id=1249838023]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

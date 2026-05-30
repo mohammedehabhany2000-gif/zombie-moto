@@ -47,55 +47,34 @@ shader_parameter/texure3 = ExtResource("4_330mf")
 shader_parameter/texure4 = SubResource("GradientTexture2D_ir15t")
 shader_parameter/texure5 = SubResource("GradientTexture1D_rysoc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
-size = Vector2(1019.25073, 318.73505)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
-size = Vector2(935.228, 157.22534)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
-size = Vector2(587.8519, 189.73975)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
-size = Vector2(218.28784, 225.46344)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybntd"]
+radius = 142.93729
+height = 838.9309
 
 [node name="car" type="StaticBody2D" unique_id=1933005371]
-scale = Vector2(0.15305378, 0.16471349)
+scale = Vector2(0.21306932, 0.354607)
 constant_linear_velocity = Vector2(0.025, -0.27)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=899695647]
-position = Vector2(-8.167065, -207.93628)
+position = Vector2(-65.38675, 13.395373)
+scale = Vector2(0.8328751, 0.5856696)
 texture = ExtResource("1_ybntd")
 
 [node name="static fire" type="Sprite2D" parent="." unique_id=1458092345]
 modulate = Color(2.137626, 2.137626, 2.137626, 1)
 material = SubResource("ShaderMaterial_0tnpc")
-position = Vector2(-512.36224, -310.05472)
-scale = Vector2(292.00113, 313.02567)
+position = Vector2(-459.9442, -62.04052)
+scale = Vector2(259.40894, 225.79959)
 texture = ExtResource("5_4mo7l")
 
 [node name="static fire2" type="Sprite2D" parent="." unique_id=1834793508]
 modulate = Color(2.137626, 2.137626, 2.137626, 1)
 material = SubResource("ShaderMaterial_0tnpc")
-position = Vector2(220.24596, -146.45322)
-scale = Vector2(204.51472, 161.68378)
+position = Vector2(112.63938, 16.920141)
+scale = Vector2(204.30411, 147.18831)
 texture = ExtResource("5_4mo7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=836212679]
-position = Vector2(0, -30.355736)
-shape = SubResource("RectangleShape2D_vtaks")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1555000795]
-position = Vector2(26.134607, -145.70755)
-shape = SubResource("RectangleShape2D_kvpfn")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=845472199]
-position = Vector2(52.26919, -315.6997)
-rotation = -0.23171836
-scale = Vector2(0.9999997, 0.9999999)
-shape = SubResource("RectangleShape2D_dinhu")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=936709084]
-position = Vector2(344.65082, -359.7154)
-rotation = -2.4670153
-shape = SubResource("RectangleShape2D_kvuet")
+position = Vector2(-23.466541, 22.560188)
+rotation = 1.3990921
+shape = SubResource("CapsuleShape2D_ybntd")
