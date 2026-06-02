@@ -1,20 +1,28 @@
 extends CharacterBody2D
 
 
-const SPEED = 600 
-@export var player : CharacterBody2D
+const SPEED = 400
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var player_in :CharacterBody2D=null
 
 
 func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-	if  player and not player.hedead:
+		velocity.y += gravity *delta
+	else :
+		velocity.y =0
+	var players = get_tree().get_nodes_in_group("players")
+	if players.size()>0:
+		var player = players[0]
+		
 		var distance =  player.global_position.x -  global_position.x
-		if distance > 10:
+		
+		if distance > 15:
 			velocity.x=SPEED
 			$AnimatedSprite2D.flip_h=false
-		elif distance<-10 :
+		elif distance<-15:
 			velocity.x=-SPEED
 			$AnimatedSprite2D.flip_h=true
 		else:
@@ -28,16 +36,25 @@ func _physics_process(delta: float) -> void:
 		if $AnimatedSprite2D.sprite_frames.has_animation("idle"):
 			$AnimatedSprite2D.play("idle")
 	move_and_slide()
-	if player and not player.hedead:
-		var overlapping_bodies = $Area2D.get_overlapping_bodies()
-		if player in overlapping_bodies:
-			if $Timer.is_stopped():
-				player.take_damage(1)
-				$Timer.start()
-		else:
-			$Timer.stop()
+	
+	
+	if player_in and not player_in.hedead:
+		if $Timer.is_stopped():
+			player_in.take_damage(1)
+			$Timer.start()
+			
+			
+			
+			
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("players"):
+		player_in = body
+func _on_area_2d_body_exited(body: Node2D)  -> void:
+	if body == player_in:
+		player_in=null
+		$Timer.stop()
+func _on_timer_timeout() -> void:
+	$Timer.stop()
+	
 			
 	
-
-func _on_timer_timeout():
-	$Timer.stop()

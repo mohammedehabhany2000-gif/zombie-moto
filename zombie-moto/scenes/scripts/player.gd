@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var healthline=$"../CanvasLayer/Control/ProgressBar"
 
-
+@onready var fuel_amount = $"../CanvasLayer/fuel amount"
 @onready var diedlabel=$"../CanvasLayer/Control/died label"
 @onready var GTAredeffect=$"../CanvasLayer/Control/ColorRect"
 
@@ -12,24 +12,37 @@ const Maxhealth= 5
 
 var currenthealth=   Maxhealth
 var hedead   = false 
+const maximumfuel =100
+var currentfuel =maximumfuel
+const fuel_decrease_rate =8
 
-
-const SPEED= 650
+const SPEED= 450
 const JUMP_VELOCITY= -470
 
 func _ready():
 	motorsoundeffect.play()
 	if healthline:
 		healthline.value = currenthealth
-	await  get_tree().process_frame
+	if fuel_amount:
+		fuel_amount.value =currentfuel
+
+	add_to_group("players")
 	
-	var zombie =  get_tree().current_scene.find_child("zombie",true,false)
-	if zombie:
-		zombie.player =self
 func _physics_process(delta):
 	
 	if hedead:
 		return
+	currentfuel-= fuel_decrease_rate * delta
+	if fuel_amount:
+		fuel_amount.value= currentfuel
+	
+	
+	if currentfuel<=0:
+		currentfuel=0
+		die()
+		return
+	
+	
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -47,12 +60,13 @@ func _physics_process(delta):
 		var collision=get_slide_collision(i)
 		
 		var collider=collision.get_collider()
-		if collider and "ambulance" in collider.name.to_lower():
+		if collider and ("ambulance" in collider.name.to_lower()) :
 				if not collider.is_queued_for_deletion():
 					if collider.has_node("CollisionShape2D"):
 						collider.get_node("CollisionShape2D").disabled=true
 					take_damage(1)
 					collider.queue_free()
+				
 					
 					
 					
@@ -71,6 +85,14 @@ func _physics_process(delta):
 	
 	motorsoundeffect.pitch_scale=lerp(0.55,2.3,speedratio)
 	$Camera2D.global_position.y=260
+
+
+
+
+
+
+
+
 func take_damage(amount):
 	currenthealth -= amount
 	if healthline:
@@ -80,6 +102,17 @@ func take_damage(amount):
 	modulate=Color( 1,1,1)
 	if currenthealth<=  0 :
 		die()
+		
+func addingthefuel(amount):
+	currentfuel+=amount
+	if currentfuel> maximumfuel:
+		currentfuel=maximumfuel
+	if fuel_amount:
+		fuel_amount.value =currentfuel
+
+
+
+
 func die() :
 	hedead=true 
 	set_physics_process(false)

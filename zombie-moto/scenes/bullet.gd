@@ -1,0 +1,27 @@
+extends Area2D
+
+var speed = 800
+var direction =Vector2.ZERO
+
+
+
+
+	
+
+func _process(delta: float) -> void:
+	if direction != Vector2.ZERO:
+		position+= direction*speed*delta
+	
+
+	
+	
+	
+	
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method("zombie_take_damage"):
+		area.zombie_take_damage(1)
+		
+		
+		queue_free()

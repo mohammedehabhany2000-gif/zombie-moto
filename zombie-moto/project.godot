@@ -15,8 +15,13 @@ run/main_scene="uid://d4gpuqsl3o1m6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globaldata="*uid://n35n2pc7gn2k"
+
 [display]
 
+window/size/viewport_width=1180
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -33,6 +38,16 @@ move_right={
 move_left={
 "deadzone": 0.2,
 "events": []
+}
+mouse_left={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(147, 22),"global_position":Vector2(156, 70),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+shoot={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(144, 23),"global_position":Vector2(153, 71),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }
 
 [physics]
