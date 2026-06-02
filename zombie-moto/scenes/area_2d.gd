@@ -1,9 +1,9 @@
 extends Area2D
-
+@onready var zombie_soundeffect=$AudioStreamPlayer2D
 @onready var damage_time = $Timer
 @onready var health_bar =$ProgressBar
 const speed =250
-var health =20
+var health =8
 var is_dead =false
 var is_live = false
 
@@ -12,6 +12,7 @@ var is_live = false
 
 
 var player_in = null
+var player_touching=false
 
 func _ready():
 	visible =true
@@ -46,15 +47,26 @@ func _on_body_entered(body):
 	
 	if body.name.to_lower().contains("player") or body.has_method("take_damage"):
 		if not body.hedead:
-			
-			is_live= true
-			
 			player_in = body
-			body.take_damage(1)
-			damage_time.start()
+			if not is_live:
+				is_live= true
+				if has_node("AudioStreamPlayer2D") and not zombie_soundeffect.playing:
+					zombie_soundeffect.play()
+			var distance= global_position.distance_to(body.global_position)
+			
+			
+			if distance<45:
+				player_touching=true
+				body.take_damage(1)
+				damage_time.start()
+				
+			
+			
 func _on_body_exited(body):
 	if body ==player_in:
 		player_in =null
+		player_touching=false
+		
 		damage_time.stop()
 
 		
@@ -65,8 +77,10 @@ func _on_body_exited(body):
 
 	
 func _on_damage_time_timeout() -> void:
-	if player_in and not player_in.hedead:
+	if player_in and player_touching and not player_in.hedead:
 		player_in.take_damage(1)
+	else:
+		damage_time.stop()
 		
 func zombie_take_damage(amount:int) -> void:
 	if is_dead:return
@@ -78,13 +92,18 @@ func zombie_take_damage(amount:int) -> void:
 func die() -> void:
 	is_dead =true
 	is_live= false
+	if has_node("AudioStreamPlayer2D"):
+		zombie_soundeffect.stop()
+	
 	if has_node("ProgressBar"):
 		health_bar.visible = false
 	
 	if has_node("AnimatedSprite2D"):
 		$AnimatedSprite2D.stop()
-	if has_node("CollisionShape2D"):
-		$CollisionShape2D.set_deferred("disabled", true)
+	if has_node("detiction"):
+		$detiction.set_deferred("disabled",true)
+	if has_node("damage area"):
+		$"damage area".set_deferred("disabled",true)
 	damage_time.stop()
 	
 	if has_node("AnimationPlayer"):

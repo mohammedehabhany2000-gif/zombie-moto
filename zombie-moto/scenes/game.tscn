@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cn3ovha6u71sf" path="res://zombie.gd" id="6_vtaks"]
 [ext_resource type="Texture2D" uid="uid://c0mqfewld8ocy" path="res://Untitled design (9) (1).png" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c2c5rmmxxn5w4" path="res://sounds/freesound_community-motorcycle_yamaha_tenere_250cc_enduro_idle-65457.ogg" id="8_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://gth6nmyjp5ok" path="res://sounds/zombie-heavy-walking-moaning-dan-barracuda-1-00-15.ogg" id="8_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://cxa2orjkk2wc5" path="res://photos/WhatsApp Image 2026-05-26 at 12.02.02 AM(2).png" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://ts75apwuy38b" path="res://photos/hole photo.png" id="11_kvpfn"]
 [ext_resource type="Script" uid="uid://b8k5of38oy5w1" path="res://scenes/fuel.gd" id="12_kvuet"]
@@ -151,12 +152,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca42v"]
-radius = 23.0
-height = 78.0
+radius = 532.00024
+height = 1148.0005
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rysoc"]
-radius = 20.0
-height = 40.0
+radius = 19.0
+height = 100.0
 
 [sub_resource type="Animation" id="Animation_js0lu"]
 length = 0.001
@@ -243,14 +244,15 @@ _data = {
 &"death": SubResource("Animation_gxtfn")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_02fa5"]
-radius = 41.773197
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
 bg_color = Color(0.25565878, 0.2556588, 0.2556587, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
 bg_color = Color(0.9749941, 0, 0.06041415, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssvqc"]
+radius = 21.0
+height = 84.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dinhu"]
 radius = 19.979492
@@ -477,6 +479,10 @@ position = Vector2(293, 9.1552734e-05)
 scale = Vector2(0.9999997, 0.99999976)
 script = ExtResource("6_ca42v")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie2" unique_id=1304739397]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie2" unique_id=1816873823]
 position = Vector2(624.00024, 254.99997)
 scale = Vector2(0.46428558, 0.3059896)
@@ -485,7 +491,7 @@ animation = &"run"
 autoplay = "default"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2" unique_id=1100389976]
+[node name="detiction" type="CollisionShape2D" parent="zombie2" unique_id=1100389976]
 position = Vector2(623.00024, 261.99997)
 shape = SubResource("CapsuleShape2D_ca42v")
 
@@ -493,7 +499,7 @@ shape = SubResource("CapsuleShape2D_ca42v")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2/StaticBody2D" unique_id=1777671654]
-position = Vector2(623.00024, 275.99997)
+position = Vector2(621.00024, 287.99997)
 shape = SubResource("CapsuleShape2D_rysoc")
 
 [node name="Timer" type="Timer" parent="zombie2" unique_id=1113524496]
@@ -504,20 +510,20 @@ libraries/ = SubResource("AnimationLibrary_twgab")
 
 [node name="detection area" type="Area2D" parent="zombie2" unique_id=2120179644]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2/detection area" unique_id=1716950316]
-position = Vector2(-39.000015, 249.99997)
-shape = SubResource("CircleShape2D_02fa5")
-
 [node name="ProgressBar" type="ProgressBar" parent="zombie2" unique_id=131981058]
-offset_left = 599.0002
-offset_top = 194.99997
-offset_right = 644.48016
-offset_bottom = 203.84497
+offset_left = 600.0002
+offset_top = 209.99997
+offset_right = 645.48016
+offset_bottom = 218.84497
 theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
-max_value = 20.0
-value = 20.0
+max_value = 7.0
+value = 7.0
 show_percentage = false
+
+[node name="damage area" type="CollisionShape2D" parent="zombie2" unique_id=162942175]
+position = Vector2(621.00024, 260.99997)
+shape = SubResource("CapsuleShape2D_ssvqc")
 
 [node name="hole" type="Area2D" parent="." unique_id=1793250755]
 script = ExtResource("6_trtic")
