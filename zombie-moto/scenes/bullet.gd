@@ -4,7 +4,8 @@ var speed = 800
 var direction =Vector2.ZERO
 
 
-
+func _ready() -> void:
+	add_to_group("bullet")
 
 	
 

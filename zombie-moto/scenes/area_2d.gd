@@ -1,7 +1,10 @@
-extends Area2D
+extends CharacterBody2D
 @onready var zombie_soundeffect=$AudioStreamPlayer2D
 @onready var damage_time = $Timer
 @onready var health_bar =$ProgressBar
+
+@onready var detection_area = $detiction
+@onready var damage_area = $"damage area"
 const speed =250
 var health =8
 var is_dead =false
@@ -17,52 +20,76 @@ var player_touching=false
 func _ready():
 	visible =true
 	is_live=false
+	is_dead=false
+	health= 8
+	get_tree().paused= false
+	
 	if has_node("AnimatedSprite2D") and$AnimatedSprite2D.sprite_frames.has_animation("default"):
 		$AnimatedSprite2D.play("default")
 	if has_node("ProgressBar"):
 		health_bar.max_value = health
 		health_bar.value=health
 	
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
-	damage_time.timeout.connect(_on_damage_time_timeout)
+	if has_node("Timer") and not $Timer.timeout.is_connected(_on_damage_time_timeout):
+		$Timer.timeout.connect(_on_damage_time_timeout)
+	if not detection_area.body_entered.is_connected(_on_detection_body_entered):
+		detection_area.body_entered.connect(_on_detection_body_entered)
+	if not damage_area.body_entered.is_connected(_on_damage_area_body_entered):
+		damage_area.body_entered.connect(_on_damage_area_body_entered)
+	if not damage_area.area_entered.is_connected(_on_damage_area_area_entered):
+		damage_area.area_entered.connect(_on_damage_area_area_entered)
+	if not damage_area.body_exited.is_connected(_on_damage_area_body_exited):
+		damage_area.body_exited.connect(_on_damage_area_body_exited)
+	
+	
+
+
 func _process(delta: float) -> void:
 	if is_dead:
 		return
 		
 	if is_live:
-		position.x -= speed *delta
+		velocity.x = -speed
+		move_and_slide() 
 		
 		if has_node("AnimatedSprite2D"):
 			$AnimatedSprite2D.flip_h=true
 			if $AnimatedSprite2D.sprite_frames.has_animation("run"):
 				$AnimatedSprite2D.play("run")
+	else:
+		velocity.x =0
+		move_and_slide()
 
-
-
-func _on_body_entered(body):
+func _on_detection_body_entered(body: Node2D) -> void:
+	
 	if is_dead :return
 	
 	
-	
-	if body.name.to_lower().contains("player") or body.has_method("take_damage"):
-		if not body.hedead:
-			player_in = body
+	if body.name.to_lower().contains("player") and not body.hedead:
+			
+			
+			
 			if not is_live:
 				is_live= true
 				if has_node("AudioStreamPlayer2D") and not zombie_soundeffect.playing:
-					zombie_soundeffect.play()
-			var distance= global_position.distance_to(body.global_position)
+						zombie_soundeffect.play()
 			
-			
-			if distance<45:
-				player_touching=true
-				body.take_damage(1)
-				damage_time.start()
 				
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if is_dead :return
+	
+	
+	if body.name.to_lower().contains("player") and not body.hedead:
+		player_in = body
+		player_touching= true
+		body.take_damage(1)
+		damage_time.start()
+	elif body.name.to_lower().contains("bullet"):
+		zombie_take_damage(1)
+		if body.has_method("queue_free"):
+			body.queue_free()
 			
-			
-func _on_body_exited(body):
+func _on_damage_area_body_exited(body: Node2D) -> void:
 	if body ==player_in:
 		player_in =null
 		player_touching=false
@@ -77,7 +104,7 @@ func _on_body_exited(body):
 
 	
 func _on_damage_time_timeout() -> void:
-	if player_in and player_touching and not player_in.hedead:
+	if player_in and not player_in.hedead:
 		player_in.take_damage(1)
 	else:
 		damage_time.stop()
@@ -100,13 +127,21 @@ func die() -> void:
 	
 	if has_node("AnimatedSprite2D"):
 		$AnimatedSprite2D.stop()
-	if has_node("detiction"):
-		$detiction.set_deferred("disabled",true)
-	if has_node("damage area"):
-		$"damage area".set_deferred("disabled",true)
+	
+	
+	detection_area.set_deferred("monitoring", false)
+	damage_area.set_deferred("monitoring",false)
+	$CollisionShape2D.set_deferred("disabled",true)
 	damage_time.stop()
 	
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.play("death")
 		await $AnimationPlayer.animation_finished
-		queue_free()
+	queue_free()
+func _on_damage_area_area_entered(area: Area2D) -> void:
+	if is_dead:
+		return
+
+	if area.is_in_group("bullet"):
+		zombie_take_damage(1)
+		area.queue_free()

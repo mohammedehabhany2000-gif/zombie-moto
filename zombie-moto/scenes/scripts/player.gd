@@ -12,7 +12,7 @@ const Maxhealth= 5
 
 var currenthealth=   Maxhealth
 var hedead   = false 
-const maximumfuel =100
+const maximumfuel =200
 var currentfuel =maximumfuel
 const fuel_decrease_rate =8
 

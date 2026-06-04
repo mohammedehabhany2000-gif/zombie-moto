@@ -1,5 +1,5 @@
 extends Area2D
-@export var fuel_bonus=25
+@export var fuel_bonus=30
 
 @export var float_speed =4
 @export var float_amplitude =8
