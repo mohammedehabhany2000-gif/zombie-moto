@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var detection_area = $detiction
 @onready var damage_area = $"damage area"
-const speed =250
+const speed =200
 var health =8
 var is_dead =false
 var is_live = false

@@ -2,21 +2,21 @@ extends CharacterBody2D
 @onready var motorsoundeffect=$"player sound"
 
 
-@onready var healthline=$"../CanvasLayer/Control/ProgressBar"
+@onready var healthline=$"../CanvasLayer/Control/health_bar"
 
 @onready var fuel_amount = $"../CanvasLayer/fuel amount"
 @onready var diedlabel=$"../CanvasLayer/Control/died label"
-@onready var GTAredeffect=$"../CanvasLayer/Control/ColorRect"
+@onready var GTAredeffect=$"../CanvasLayer/Control/death panal"
 
-const Maxhealth= 5
+const Maxhealth= 7
 
 var currenthealth=   Maxhealth
 var hedead   = false 
-const maximumfuel =200
+const maximumfuel =100
 var currentfuel =maximumfuel
 const fuel_decrease_rate =8
 
-const SPEED= 450
+const SPEED= 500
 const JUMP_VELOCITY= -470
 
 func _ready():
@@ -80,7 +80,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	var currentspeed=velocity.length()
 	
-	var maximum_moto_speed  =900
+	var maximum_moto_speed  =500
 	var speedratio = clamp(currentspeed /  maximum_moto_speed, 0, 1)
 	
 	motorsoundeffect.pitch_scale=lerp(0.55,2.3,speedratio)

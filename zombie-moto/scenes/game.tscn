@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cnj3g1od0idf3" path="res://road photo (1).png" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dmix8mhoa4dqa" path="res://scenes/ambulance.tscn" id="5_u5sy4"]
 [ext_resource type="Script" uid="uid://3kytktum38x2" path="res://scenes/scripts/player.gd" id="6_0tnpc"]
+[ext_resource type="Script" uid="uid://dd6okrqtfq13t" path="res://scenes/finishing.gd" id="6_1kice"]
 [ext_resource type="Script" uid="uid://dx2o3l3sos3tx" path="res://scenes/area_2d.gd" id="6_ca42v"]
 [ext_resource type="Texture2D" uid="uid://x0d0v3a8hcmc" path="res://photos/zombiee2.png" id="6_ir15t"]
 [ext_resource type="Script" uid="uid://3tv74txubmkr" path="res://scenes/hole.gd" id="6_trtic"]
 [ext_resource type="Script" uid="uid://cn3ovha6u71sf" path="res://zombie.gd" id="6_vtaks"]
+[ext_resource type="Texture2D" uid="uid://bfnhk0h0syf3y" path="res://photos/WhatsApp Image 2026-06-05 at 12.09.23 AM.png" id="7_5newe"]
 [ext_resource type="Texture2D" uid="uid://c0mqfewld8ocy" path="res://Untitled design (9) (1).png" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://c2c5rmmxxn5w4" path="res://sounds/freesound_community-motorcycle_yamaha_tenere_250cc_enduro_idle-65457.ogg" id="8_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://gth6nmyjp5ok" path="res://sounds/zombie-heavy-walking-moaning-dan-barracuda-1-00-15.ogg" id="8_ssvqc"]
@@ -18,6 +20,9 @@
 [ext_resource type="Script" uid="uid://b8k5of38oy5w1" path="res://scenes/fuel.gd" id="12_kvuet"]
 [ext_resource type="Texture2D" uid="uid://7w006vloms05" path="res://photos/Untitled design (12).png" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dpaq2823y0ci3" path="res://gun.tscn" id="15_rysoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37s47"]
+size = Vector2(732.375, 380.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
 atlas = ExtResource("9_0tnpc")
@@ -228,7 +233,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kice"]
-size = Vector2(1184.2505, 478.0001)
+size = Vector2(1951.2507, 478.0001)
 
 [sub_resource type="Animation" id="Animation_js0lu"]
 length = 0.001
@@ -369,7 +374,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 55.107544
+radius = 69.892456
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
 size = Vector2(4298.3125, 160.375)
@@ -397,7 +402,7 @@ skew = Vector2(0.7, 0)
 radius = 26.0
 
 [node name="Game" type="Node2D" unique_id=200594599]
-position = Vector2(2064, 87)
+position = Vector2(2063, 87)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1825505924]
 texture_filter = 2
@@ -405,7 +410,7 @@ texture_repeat = 2
 scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(-1258, 234)
 repeat_size = Vector2(1306, 0)
-repeat_times = 11
+repeat_times = 31
 limit_begin = Vector2(inf_neg, inf_neg)
 limit_end = Vector2(inf, inf)
 
@@ -418,9 +423,9 @@ texture = ExtResource("1_iywne")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=909087263]
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(2586, 215)
+scroll_offset = Vector2(-614, 206)
 repeat_size = Vector2(1600, 0)
-repeat_times = 11
+repeat_times = 18
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=228589434]
 texture = ExtResource("2_iywne")
@@ -429,9 +434,9 @@ texture = ExtResource("2_iywne")
 texture_filter = 2
 texture_repeat = 2
 scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(-1280, -69)
+scroll_offset = Vector2(-1280, -61)
 repeat_size = Vector2(1308, 0)
-repeat_times = 13
+repeat_times = 25
 limit_begin = Vector2(inf_neg, inf_neg)
 limit_end = Vector2(inf, inf)
 
@@ -443,20 +448,20 @@ texture = ExtResource("3_p57ef")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=396003323]
 texture_repeat = 2
-position = Vector2(1015.99976, 240.8552)
-scale = Vector2(0.69025004, 0.42150107)
+position = Vector2(1015.99976, 250.29083)
+scale = Vector2(0.69025004, 0.5501832)
 texture = ExtResource("5_iywne")
 region_enabled = true
-region_rect = Rect2(0, 0, 30000.436, 645)
+region_rect = Rect2(0, 0, 60000, 645)
 
 [node name="ambulance2" parent="." unique_id=1933005371 instance=ExtResource("5_u5sy4")]
-position = Vector2(-9, 269)
+position = Vector2(-406, 289)
 
 [node name="ambulance" parent="." unique_id=1684219609 instance=ExtResource("5_u5sy4")]
-position = Vector2(4063, 273.00003)
+position = Vector2(4396, 273.00003)
 
 [node name="ambulance3" parent="." unique_id=51368494 instance=ExtResource("5_u5sy4")]
-position = Vector2(2245, 273.00003)
+position = Vector2(2191, 273.00003)
 
 [node name="ambulance4" parent="." unique_id=502590562 instance=ExtResource("5_u5sy4")]
 position = Vector2(5565, 270)
@@ -467,8 +472,21 @@ position = Vector2(6930, 273.00003)
 [node name="ambulance6" parent="." unique_id=510999152 instance=ExtResource("5_u5sy4")]
 position = Vector2(9386, 294.00003)
 
+[node name="finishing" type="Area2D" parent="." unique_id=109341947]
+process_mode = 3
+script = ExtResource("6_1kice")
+
+[node name="Sprite2D" type="Sprite2D" parent="finishing" unique_id=536739252]
+position = Vector2(18139.875, 168.75)
+scale = Vector2(0.45265436, 0.45187503)
+texture = ExtResource("7_5newe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finishing" unique_id=387892934]
+position = Vector2(17908, 182)
+shape = SubResource("RectangleShape2D_37s47")
+
 [node name="zombie" type="CharacterBody2D" parent="." unique_id=89061087]
-position = Vector2(-1441, 3)
+position = Vector2(-2122, 95)
 collision_mask = 2
 script = ExtResource("6_vtaks")
 
@@ -493,8 +511,34 @@ shape = SubResource("RectangleShape2D_kvuet")
 wait_time = 0.5
 one_shot = true
 
+[node name="zombie4" type="CharacterBody2D" parent="." unique_id=1288054703]
+position = Vector2(-2240, 95)
+collision_mask = 2
+script = ExtResource("6_vtaks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie4" unique_id=1367238697]
+position = Vector2(90, 200)
+scale = Vector2(0.51620376, 0.5019844)
+sprite_frames = SubResource("SpriteFrames_kvpfn")
+animation = &"run"
+
+[node name="collisionshape2d" type="CollisionShape2D" parent="zombie4" unique_id=298407002]
+position = Vector2(90, 200)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="Area2D" type="Area2D" parent="zombie4" unique_id=1010255493]
+position = Vector2(90, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie4/Area2D" unique_id=368934010]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="Timer" type="Timer" parent="zombie4" unique_id=171056264]
+wait_time = 0.5
+one_shot = true
+
 [node name="zombie2" type="CharacterBody2D" parent="." unique_id=1730028016]
-position = Vector2(886, -4.9999084)
+position = Vector2(785, -4.9999084)
 scale = Vector2(0.9999997, 0.99999976)
 collision_layer = 0
 script = ExtResource("6_ca42v")
@@ -526,7 +570,7 @@ flip_h = true
 position = Vector2(623.00024, 261.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2/detiction" unique_id=1159578265]
-position = Vector2(-53.875, -32.00006)
+position = Vector2(-437.375, -32.000122)
 shape = SubResource("RectangleShape2D_1kice")
 
 [node name="Timer" type="Timer" parent="zombie2" unique_id=1113524496]
@@ -547,7 +591,7 @@ value = 7.0
 show_percentage = false
 
 [node name="zombie3" type="CharacterBody2D" parent="." unique_id=1642719718]
-position = Vector2(2347.9998, -4.9999084)
+position = Vector2(3037, -4.9999084)
 scale = Vector2(0.9999997, 0.99999976)
 collision_layer = 4
 script = ExtResource("6_ca42v")
@@ -579,6 +623,7 @@ flip_h = true
 position = Vector2(623.00024, 261.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie3/detiction" unique_id=1937672817]
+y_sort_enabled = true
 position = Vector2(-53.875, -32.00006)
 shape = SubResource("RectangleShape2D_1kice")
 
@@ -613,7 +658,7 @@ rotation = 1.5805588
 shape = SubResource("CapsuleShape2D_dinhu")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=25772425]
-position = Vector2(200, 200)
+position = Vector2(-1329, 200)
 collision_mask = 7
 script = ExtResource("6_0tnpc")
 
@@ -648,7 +693,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="gun" parent="player" unique_id=1934391452 instance=ExtResource("15_rysoc")]
-position = Vector2(28.00002, -0.9999924)
+position = Vector2(16.00002, -3.9999924)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156153298]
 position = Vector2(280, -395)
@@ -660,7 +705,7 @@ shape = SubResource("RectangleShape2D_kvpfn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1570062989]
 texture_filter = 2
-position = Vector2(15, 794)
+position = Vector2(15, 819)
 shape = SubResource("RectangleShape2D_trtic")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=586059623]
@@ -672,27 +717,27 @@ offset_left = 8.0
 offset_right = 48.0
 offset_bottom = 40.0
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1047857978]
+[node name="health_bar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1047857978]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 16.0
-offset_right = 217.0
-offset_bottom = 46.0
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 215.0
+offset_bottom = 49.0
 theme_override_styles/background = SubResource("StyleBoxFlat_gee14")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0tnpc")
 max_value = 5.0
 value = 5.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=2108516380]
+[node name="hp" type="Label" parent="CanvasLayer/Control" unique_id=2108516380]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 54.0
-offset_bottom = 39.0
+offset_left = 28.0
+offset_top = 21.0
+offset_right = 50.0
+offset_bottom = 44.0
 text = "HP"
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=465179528]
+[node name="death panal" type="ColorRect" parent="CanvasLayer/Control" unique_id=465179528]
 visible = false
 layout_mode = 0
 offset_left = -7.0
@@ -708,9 +753,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 352.0
+offset_left = 333.0
 offset_top = 271.0
-offset_right = 823.0
+offset_right = 804.0
 offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -722,9 +767,9 @@ text = "YOU DIED"
 
 [node name="fuel amount" type="ProgressBar" parent="CanvasLayer" unique_id=414372626]
 offset_left = 17.0
-offset_top = 67.0
+offset_top = 63.0
 offset_right = 217.0
-offset_bottom = 97.0
+offset_bottom = 90.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ir15t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ca42v")
 max_value = 200.0
@@ -733,23 +778,50 @@ show_percentage = false
 
 [node name="fuel" type="Label" parent="CanvasLayer" unique_id=738598745]
 offset_left = 33.0
-offset_top = 70.0
+offset_top = 62.0
 offset_right = 93.0
-offset_bottom = 109.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Fuel"
 
 [node name="ammo" type="Label" parent="CanvasLayer" unique_id=1985227867]
-offset_left = 21.0
-offset_top = 108.0
-offset_right = 143.0
-offset_bottom = 135.0
+offset_left = 31.0
+offset_top = 100.0
+offset_right = 153.0
+offset_bottom = 127.0
 theme_override_colors/font_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
 theme_override_font_sizes/font_size = 19
 text = "Ammo: 20/20"
 
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1073811166]
+visible = false
+offset_left = -4.0
+offset_top = 8.0
+offset_right = 1186.0
+offset_bottom = 647.0
+color = Color(0.14901961, 1, 0.12156863, 0.57254905)
+
+[node name="youwin" type="Label" parent="CanvasLayer/ColorRect2" unique_id=1466195363]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = 279.0
+offset_right = 417.0
+offset_bottom = 461.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.11764706, 0.6, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 89
+text = "Mission Passed"
+
 [node name="fuel" type="Area2D" parent="." unique_id=973049101]
-position = Vector2(21, 6)
+position = Vector2(-945, 13)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel" unique_id=546474216]
@@ -762,7 +834,7 @@ position = Vector2(1228, 259)
 shape = SubResource("CircleShape2D_trtic")
 
 [node name="fuel3" type="Area2D" parent="." unique_id=1763819847]
-position = Vector2(21, 6)
+position = Vector2(-100, 6)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel3" unique_id=878470350]
@@ -775,7 +847,7 @@ position = Vector2(7923, 254)
 shape = SubResource("CircleShape2D_trtic")
 
 [node name="fuel2" type="Area2D" parent="." unique_id=251710830]
-position = Vector2(21, 6)
+position = Vector2(-930, 6)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel2" unique_id=2060038215]
@@ -787,9 +859,13 @@ texture = ExtResource("13_kvuet")
 position = Vector2(4966, 255)
 shape = SubResource("CircleShape2D_trtic")
 
+[connection signal="body_entered" from="finishing" to="finishing" method="_on_body_entered"]
 [connection signal="body_entered" from="zombie/Area2D" to="zombie" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="zombie/Area2D" to="zombie" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="zombie/Timer" to="zombie" method="_on_timer_timeout"]
+[connection signal="body_entered" from="zombie4/Area2D" to="zombie4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="zombie4/Area2D" to="zombie4" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="zombie4/Timer" to="zombie4" method="_on_timer_timeout"]
 [connection signal="area_entered" from="zombie2/damage area" to="zombie2" method="_on_damage_area_area_entered"]
 [connection signal="area_entered" from="zombie3/damage area" to="zombie3" method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="hole" to="player" method="_on_hole_body_entered"]
