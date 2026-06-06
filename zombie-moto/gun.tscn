@@ -69,7 +69,8 @@ func update_ammo_ui():
 script = SubResource("GDScript_vk1bi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=624679047]
-scale = Vector2(0.095, 0.095)
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.07777344, 0.076145835)
 texture = ExtResource("1_vk1bi")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1450805594]

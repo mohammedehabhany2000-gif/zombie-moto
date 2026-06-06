@@ -13,7 +13,8 @@ func _process(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		position+= direction*speed*delta
 	
-
+func _on_timer_timeout() -> void:
+	queue_free()
 	
 	
 	

@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var diedlabel=$"../CanvasLayer/Control/died label"
 @onready var GTAredeffect=$"../CanvasLayer/Control/death panal"
 
-const Maxhealth= 7
+const Maxhealth= 10
 
 var currenthealth=   Maxhealth
 var hedead   = false 
@@ -16,8 +16,8 @@ const maximumfuel =100
 var currentfuel =maximumfuel
 const fuel_decrease_rate =8
 
-const SPEED= 500
-const JUMP_VELOCITY= -470
+const SPEED= 640
+const JUMP_VELOCITY= -500
 
 func _ready():
 	motorsoundeffect.play()

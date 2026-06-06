@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d4gpuqsl3o1m6"]
 
+[ext_resource type="Script" uid="uid://c0qutiqikcaxg" path="res://scenes/game.gd" id="1_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://dmbj376a7udma" path="res://the first layer in background.jpeg" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://rhgg2dq02bwa" path="res://photos/layer 2 background.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://dnmdi6yitlojm" path="res://photos/layer 3 background.png" id="3_p57ef"]
@@ -16,10 +17,65 @@
 [ext_resource type="AudioStream" uid="uid://c2c5rmmxxn5w4" path="res://sounds/freesound_community-motorcycle_yamaha_tenere_250cc_enduro_idle-65457.ogg" id="8_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://gth6nmyjp5ok" path="res://sounds/zombie-heavy-walking-moaning-dan-barracuda-1-00-15.ogg" id="8_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://cxa2orjkk2wc5" path="res://photos/WhatsApp Image 2026-05-26 at 12.02.02 AM(2).png" id="9_0tnpc"]
+[ext_resource type="Shader" uid="uid://bqdkr4gthlev0" path="res://scenes/game.tres" id="9_qnb83"]
+[ext_resource type="Texture2D" uid="uid://cs04fxguei5x3" path="res://teaxures for fire/T_VFX_Noise_465.png" id="10_sww3w"]
 [ext_resource type="Texture2D" uid="uid://ts75apwuy38b" path="res://photos/hole photo.png" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://yxb6wbisrlxb" path="res://teaxures for fire/T_VFX_Glow_1.PNG" id="11_suyxu"]
 [ext_resource type="Script" uid="uid://b8k5of38oy5w1" path="res://scenes/fuel.gd" id="12_kvuet"]
+[ext_resource type="Texture2D" uid="uid://bnl2qmpjfpi61" path="res://teaxures for fire/T_1_pixel.jpg" id="12_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://7w006vloms05" path="res://photos/Untitled design (12).png" id="13_kvuet"]
+[ext_resource type="Texture2D" uid="uid://bw4mv332tc0ah" path="res://photos/boss zombie.png" id="15_37s47"]
 [ext_resource type="PackedScene" uid="uid://dpaq2823y0ci3" path="res://gun.tscn" id="15_rysoc"]
+[ext_resource type="Script" uid="uid://btr27lbxi166y" path="res://scenes/zombie_4.gd" id="17_sww3w"]
+[ext_resource type="Script" uid="uid://dnhwl1ghtwn4g" path="res://scenes/boss_zombie.gd" id="22_bt5mj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dinhu"]
+radius = 19.979492
+height = 299.96875
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5newe"]
+size = Vector2(303, 67.25)
+
+[sub_resource type="Gradient" id="Gradient_qouja"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dinhu"]
+gradient = SubResource("Gradient_qouja")
+fill_from = Vector2(0.18461539, 0.82051283)
+fill_to = Vector2(0.015384615, 1)
+
+[sub_resource type="Gradient" id="Gradient_wljb1"]
+offsets = PackedFloat32Array(0.99236643, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir15t"]
+gradient = SubResource("Gradient_wljb1")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_v2yb1"]
+offsets = PackedFloat32Array(0, 0.08396947, 0.23664123, 0.40458015, 0.610687, 0.90839696)
+colors = PackedColorArray(0.38560182, 0.38560182, 0.38560182, 0, 0.7509483, 0.25278953, 0.20906562, 1, 0.9808553, 0.22658296, 0.17558163, 1, 1, 0.40863404, 0, 1, 1.0413129, 0.84753215, 0, 1, 1.0413129, 0.8994082, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rysoc"]
+gradient = SubResource("Gradient_v2yb1")
+
+[sub_resource type="Gradient" id="Gradient_js0lu"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.018000001)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_trtic"]
+gradient = SubResource("Gradient_js0lu")
+fill_from = Vector2(0.37435898, 0.48205128)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtfn"]
+shader = ExtResource("9_qnb83")
+shader_parameter/scale = Vector2(4.54, -3.01)
+shader_parameter/speed = Vector2(-3.395, 5.94)
+shader_parameter/texure1 = ExtResource("10_sww3w")
+shader_parameter/texture2 = SubResource("GradientTexture2D_dinhu")
+shader_parameter/texure6 = SubResource("GradientTexture2D_trtic")
+shader_parameter/texure3 = ExtResource("11_suyxu")
+shader_parameter/texure4 = SubResource("GradientTexture2D_ir15t")
+shader_parameter/texure5 = SubResource("GradientTexture1D_rysoc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37s47"]
 size = Vector2(732.375, 380.25)
@@ -92,13 +148,9 @@ size = Vector2(77.375, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
 size = Vector2(90, 87)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rysoc"]
-radius = 19.0
-height = 88.00018
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_264po"]
-radius = 57.0
-height = 114.0
+radius = 63.0
+height = 200.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_suyxu"]
 atlas = ExtResource("6_ir15t")
@@ -120,53 +172,49 @@ region = Rect2(702, 0, 234, 384)
 atlas = ExtResource("6_ir15t")
 region = Rect2(936, 0, 234, 384)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rysoc"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(1, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(232, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(463, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(694, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(925, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(1156, 0, 231, 384)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
-atlas = ExtResource("6_ir15t")
-region = Rect2(1, 384, 231, 384)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1j6l"]
 atlas = ExtResource("6_ir15t")
-region = Rect2(232, 384, 231, 384)
+region = Rect2(0, 0, 234, 384)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pl11u"]
 atlas = ExtResource("6_ir15t")
-region = Rect2(463, 384, 231, 384)
+region = Rect2(234, 0, 234, 384)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhx41"]
 atlas = ExtResource("6_ir15t")
-region = Rect2(694, 384, 231, 384)
+region = Rect2(468, 0, 234, 384)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnb83"]
 atlas = ExtResource("6_ir15t")
-region = Rect2(925, 384, 231, 384)
+region = Rect2(702, 0, 234, 384)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sww3w"]
 atlas = ExtResource("6_ir15t")
-region = Rect2(1156, 384, 231, 384)
+region = Rect2(936, 0, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js0lu"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(0, 384, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxtfn"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(234, 384, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twgab"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(468, 384, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02fa5"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(702, 384, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nepv3"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(936, 384, 234, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7025r"]
+atlas = ExtResource("6_ir15t")
+region = Rect2(1170, 384, 234, 384)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_suyxu"]
 animations = [{
@@ -192,27 +240,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rysoc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ssvqc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_264po")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1kice")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5newe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_37s47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bt5mj")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_e1j6l")
 }, {
 "duration": 1.0,
@@ -226,14 +253,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sww3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxtfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twgab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02fa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nepv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7025r")
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 5.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kice"]
-size = Vector2(1951.2507, 478.0001)
+size = Vector2(2199.6892, 478.0001)
 
 [sub_resource type="Animation" id="Animation_js0lu"]
 length = 0.001
@@ -326,9 +371,26 @@ bg_color = Color(0.25565878, 0.2556588, 0.2556587, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
 bg_color = Color(0.9749941, 0, 0.06041415, 1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dinhu"]
-radius = 19.979492
-height = 149.93164
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl11u"]
+size = Vector2(109, 141.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhx41"]
+size = Vector2(87, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnb83"]
+size = Vector2(91, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sww3w"]
+size = Vector2(92, 148.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suyxu"]
+size = Vector2(87.999756, 162.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgl2t"]
+size = Vector2(90.00122, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qouja"]
+size = Vector2(92.993164, 185.00003)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
 atlas = ExtResource("7_vtaks")
@@ -373,14 +435,17 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 69.892456
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wljb1"]
+size = Vector2(127.6882, 203.617)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
-size = Vector2(4298.3125, 160.375)
+size = Vector2(6700, 160.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
-size = Vector2(16444, 171)
+size = Vector2(14677, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt5mj"]
+size = Vector2(4679, 157.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
@@ -401,14 +466,119 @@ skew = Vector2(0.7, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_trtic"]
 radius = 26.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1j6l"]
+size = Vector2(18, 63.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4url"]
+size = Vector2(230, 277)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ool0"]
+radius = 139.0
+height = 348.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr1ej"]
+size = Vector2(1284, 417)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05nbr"]
+atlas = ExtResource("15_37s47")
+region = Rect2(0, 0, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sl42"]
+atlas = ExtResource("15_37s47")
+region = Rect2(256, 0, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaba0"]
+atlas = ExtResource("15_37s47")
+region = Rect2(512, 0, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_458eo"]
+atlas = ExtResource("15_37s47")
+region = Rect2(768, 0, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3rex"]
+atlas = ExtResource("15_37s47")
+region = Rect2(0, 186, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fedci"]
+atlas = ExtResource("15_37s47")
+region = Rect2(256, 186, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qswn"]
+atlas = ExtResource("15_37s47")
+region = Rect2(512, 186, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm0al"]
+atlas = ExtResource("15_37s47")
+region = Rect2(768, 186, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4re6"]
+atlas = ExtResource("15_37s47")
+region = Rect2(0, 372, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf7vy"]
+atlas = ExtResource("15_37s47")
+region = Rect2(256, 372, 256, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ni1"]
+atlas = ExtResource("15_37s47")
+region = Rect2(512, 372, 256, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hbvx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05nbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sl42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaba0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_458eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3rex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fedci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qswn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm0al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4re6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf7vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ni1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8j3a"]
+bg_color = Color(0.30692264, 0.3069227, 0.30692258, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms3bu"]
+bg_color = Color(0.96862745, 0.078431375, 0.18039216, 1)
+
 [node name="Game" type="Node2D" unique_id=200594599]
 position = Vector2(2063, 87)
+script = ExtResource("1_bt5mj")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1825505924]
 texture_filter = 2
 texture_repeat = 2
 scroll_scale = Vector2(0.1, 0.1)
-scroll_offset = Vector2(-1258, 234)
+scroll_offset = Vector2(-1258, 236)
 repeat_size = Vector2(1306, 0)
 repeat_times = 31
 limit_begin = Vector2(inf_neg, inf_neg)
@@ -423,7 +593,7 @@ texture = ExtResource("1_iywne")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=909087263]
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-614, 206)
+scroll_offset = Vector2(-614, 216)
 repeat_size = Vector2(1600, 0)
 repeat_times = 18
 
@@ -434,7 +604,7 @@ texture = ExtResource("2_iywne")
 texture_filter = 2
 texture_repeat = 2
 scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(-1280, -61)
+scroll_offset = Vector2(-1280, -41)
 repeat_size = Vector2(1308, 0)
 repeat_times = 25
 limit_begin = Vector2(inf_neg, inf_neg)
@@ -455,39 +625,94 @@ region_enabled = true
 region_rect = Rect2(0, 0, 60000, 645)
 
 [node name="ambulance2" parent="." unique_id=1933005371 instance=ExtResource("5_u5sy4")]
-position = Vector2(-406, 289)
+position = Vector2(-429, 285)
 
 [node name="ambulance" parent="." unique_id=1684219609 instance=ExtResource("5_u5sy4")]
-position = Vector2(4396, 273.00003)
+position = Vector2(4374, 285.00003)
 
 [node name="ambulance3" parent="." unique_id=51368494 instance=ExtResource("5_u5sy4")]
 position = Vector2(2191, 273.00003)
 
 [node name="ambulance4" parent="." unique_id=502590562 instance=ExtResource("5_u5sy4")]
-position = Vector2(5565, 270)
+position = Vector2(5817, 277)
 
 [node name="ambulance5" parent="." unique_id=1583293113 instance=ExtResource("5_u5sy4")]
-position = Vector2(6930, 273.00003)
+position = Vector2(11072, 289)
 
 [node name="ambulance6" parent="." unique_id=510999152 instance=ExtResource("5_u5sy4")]
-position = Vector2(9386, 294.00003)
+position = Vector2(9833, 280.00003)
+
+[node name="ambulance7" parent="." unique_id=584229287 instance=ExtResource("5_u5sy4")]
+position = Vector2(16885, 282.99994)
+
+[node name="hole" type="Area2D" parent="." unique_id=1793250755]
+collision_layer = 0
+script = ExtResource("6_trtic")
+
+[node name="Sprite2D" type="Sprite2D" parent="hole" unique_id=297111375]
+position = Vector2(6934.5, 263.92624)
+scale = Vector2(0.17016654, 0.14755554)
+texture = ExtResource("11_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole" unique_id=334237131]
+position = Vector2(6904.001, 372.00003)
+rotation = 1.5805588
+shape = SubResource("CapsuleShape2D_dinhu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="hole" unique_id=298491804]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole/StaticBody2D" unique_id=500289349]
+position = Vector2(6904, 373)
+shape = SubResource("RectangleShape2D_5newe")
+
+[node name="hole2" type="Area2D" parent="." unique_id=1775951383]
+position = Vector2(7007, 5)
+collision_layer = 0
+script = ExtResource("6_trtic")
+
+[node name="Sprite2D" type="Sprite2D" parent="hole2" unique_id=1638317257]
+position = Vector2(6934.5, 257.43204)
+scale = Vector2(0.17016654, 0.13599999)
+texture = ExtResource("11_kvpfn")
+
+[node name="static fire2" type="Sprite2D" parent="hole2" unique_id=1640900513]
+modulate = Color(2.137626, 2.137626, 2.137626, 1)
+material = SubResource("ShaderMaterial_gxtfn")
+position = Vector2(6755.999, 264)
+scale = Vector2(293.0009, 118.18832)
+texture = ExtResource("12_sgl2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole2" unique_id=1884168962]
+position = Vector2(6904.001, 372.00003)
+rotation = 1.5805588
+shape = SubResource("CapsuleShape2D_dinhu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="hole2" unique_id=90623233]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hole2/StaticBody2D" unique_id=993862711]
+position = Vector2(6904, 373)
+shape = SubResource("RectangleShape2D_5newe")
 
 [node name="finishing" type="Area2D" parent="." unique_id=109341947]
 process_mode = 3
 script = ExtResource("6_1kice")
 
 [node name="Sprite2D" type="Sprite2D" parent="finishing" unique_id=536739252]
-position = Vector2(18139.875, 168.75)
-scale = Vector2(0.45265436, 0.45187503)
+position = Vector2(18144, 181)
+scale = Vector2(0.45265436, 0.49625)
 texture = ExtResource("7_5newe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="finishing" unique_id=387892934]
-position = Vector2(17908, 182)
+position = Vector2(18399, 182)
 shape = SubResource("RectangleShape2D_37s47")
 
 [node name="zombie" type="CharacterBody2D" parent="." unique_id=89061087]
-position = Vector2(-2122, 95)
-collision_mask = 2
+position = Vector2(-2209, 95)
+collision_mask = 10
 script = ExtResource("6_vtaks")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie" unique_id=726162813]
@@ -512,9 +737,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="zombie4" type="CharacterBody2D" parent="." unique_id=1288054703]
-position = Vector2(-2240, 95)
-collision_mask = 2
-script = ExtResource("6_vtaks")
+position = Vector2(-2358, 97)
+collision_mask = 10
+script = ExtResource("17_sww3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie4" unique_id=1367238697]
 position = Vector2(90, 200)
@@ -540,18 +765,17 @@ one_shot = true
 [node name="zombie2" type="CharacterBody2D" parent="." unique_id=1730028016]
 position = Vector2(785, -4.9999084)
 scale = Vector2(0.9999997, 0.99999976)
-collision_layer = 0
+collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 12.0
 script = ExtResource("6_ca42v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2" unique_id=1777671654]
-position = Vector2(613.00024, 267.99988)
-shape = SubResource("CapsuleShape2D_rysoc")
 
 [node name="damage area" type="Area2D" parent="zombie2" unique_id=1613232329]
 position = Vector2(615.00024, 263.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2/damage area" unique_id=1206164248]
-position = Vector2(-1, 13)
+position = Vector2(-10, -2)
 shape = SubResource("CapsuleShape2D_264po")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie2" unique_id=1304739397]
@@ -560,7 +784,7 @@ volume_db = 4.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie2" unique_id=1816873823]
 position = Vector2(624.00024, 254.99997)
-scale = Vector2(0.9077168, 0.3159448)
+scale = Vector2(0.9814657, 0.5390626)
 sprite_frames = SubResource("SpriteFrames_suyxu")
 animation = &"run"
 autoplay = "default"
@@ -570,7 +794,7 @@ flip_h = true
 position = Vector2(623.00024, 261.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2/detiction" unique_id=1159578265]
-position = Vector2(-437.375, -32.000122)
+position = Vector2(-506.68774, -32.000183)
 shape = SubResource("RectangleShape2D_1kice")
 
 [node name="Timer" type="Timer" parent="zombie2" unique_id=1113524496]
@@ -580,31 +804,34 @@ wait_time = 0.7
 libraries/ = SubResource("AnimationLibrary_twgab")
 
 [node name="ProgressBar" type="ProgressBar" parent="zombie2" unique_id=131981058]
-offset_left = 587.00024
-offset_top = 199.99994
-offset_right = 632.4802
-offset_bottom = 208.84494
+offset_left = 568.00024
+offset_top = 170.99994
+offset_right = 628.00024
+offset_bottom = 178.49994
 theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
 max_value = 7.0
 value = 7.0
 show_percentage = false
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2" unique_id=1777671654]
+position = Vector2(613.50024, 252.49997)
+shape = SubResource("RectangleShape2D_pl11u")
+
 [node name="zombie3" type="CharacterBody2D" parent="." unique_id=1642719718]
 position = Vector2(3037, -4.9999084)
 scale = Vector2(0.9999997, 0.99999976)
 collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 8.0
 script = ExtResource("6_ca42v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie3" unique_id=1265443930]
-position = Vector2(613.00024, 267.99988)
-shape = SubResource("CapsuleShape2D_rysoc")
 
 [node name="damage area" type="Area2D" parent="zombie3" unique_id=1920351973]
 position = Vector2(615.00024, 263.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie3/damage area" unique_id=1897259091]
-position = Vector2(-1, 13)
+position = Vector2(4, -10)
 shape = SubResource("CapsuleShape2D_264po")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie3" unique_id=692682131]
@@ -613,7 +840,7 @@ volume_db = 4.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie3" unique_id=294383292]
 position = Vector2(624.00024, 254.99997)
-scale = Vector2(0.9077168, 0.3159448)
+scale = Vector2(0.9887245, 0.58028835)
 sprite_frames = SubResource("SpriteFrames_suyxu")
 animation = &"run"
 autoplay = "default"
@@ -624,7 +851,7 @@ position = Vector2(623.00024, 261.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zombie3/detiction" unique_id=1937672817]
 y_sort_enabled = true
-position = Vector2(-53.875, -32.00006)
+position = Vector2(-124, -32.000183)
 shape = SubResource("RectangleShape2D_1kice")
 
 [node name="Timer" type="Timer" parent="zombie3" unique_id=751137345]
@@ -634,46 +861,325 @@ wait_time = 0.7
 libraries/ = SubResource("AnimationLibrary_twgab")
 
 [node name="ProgressBar" type="ProgressBar" parent="zombie3" unique_id=1792845819]
-offset_left = 587.00024
-offset_top = 199.99994
-offset_right = 632.4802
-offset_bottom = 208.84494
+offset_left = 576.00024
+offset_top = 162.99994
+offset_right = 636.00024
+offset_bottom = 170.49994
 theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
 max_value = 7.0
 value = 7.0
 show_percentage = false
 
-[node name="hole" type="Area2D" parent="." unique_id=1793250755]
-script = ExtResource("6_trtic")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie3" unique_id=1265443930]
+position = Vector2(619.5, 250.49994)
+shape = SubResource("RectangleShape2D_bhx41")
 
-[node name="Sprite2D" type="Sprite2D" parent="hole" unique_id=297111375]
-position = Vector2(8706, 250.44891)
-scale = Vector2(0.13933331, 0.10222223)
-texture = ExtResource("11_kvpfn")
+[node name="zombie5" type="CharacterBody2D" parent="." unique_id=333893050]
+position = Vector2(7812.0005, -4.9999084)
+scale = Vector2(0.9999997, 0.99999976)
+collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 8.0
+script = ExtResource("6_ca42v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hole" unique_id=334237131]
-position = Vector2(8676, 332)
-rotation = 1.5805588
-shape = SubResource("CapsuleShape2D_dinhu")
+[node name="damage area" type="Area2D" parent="zombie5" unique_id=732776599]
+position = Vector2(615.00024, 263.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie5/damage area" unique_id=799577053]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_264po")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie5" unique_id=1153748809]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie5" unique_id=57981491]
+position = Vector2(624.00024, 254.99997)
+scale = Vector2(0.9588096, 0.5568509)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+animation = &"run"
+autoplay = "default"
+flip_h = true
+
+[node name="detiction" type="Area2D" parent="zombie5" unique_id=527696980]
+position = Vector2(623.00024, 261.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie5/detiction" unique_id=2040553176]
+y_sort_enabled = true
+position = Vector2(-124, -32.000183)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="Timer" type="Timer" parent="zombie5" unique_id=1945096574]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie5" unique_id=933993212]
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="zombie5" unique_id=1884718713]
+offset_left = 573.00024
+offset_top = 169.99995
+offset_right = 633.00024
+offset_bottom = 177.49995
+theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie5" unique_id=1804409605]
+position = Vector2(621.5, 256.49994)
+shape = SubResource("RectangleShape2D_qnb83")
+
+[node name="zombie6" type="CharacterBody2D" parent="." unique_id=759226823]
+position = Vector2(8381, -4.9999084)
+scale = Vector2(0.9999997, 0.99999976)
+collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 8.0
+script = ExtResource("6_ca42v")
+
+[node name="damage area" type="Area2D" parent="zombie6" unique_id=971564773]
+position = Vector2(615.00024, 263.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie6/damage area" unique_id=1459003237]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_264po")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie6" unique_id=321252940]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie6" unique_id=1414075319]
+position = Vector2(624.00024, 254.99997)
+scale = Vector2(0.9545332, 0.5776842)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+animation = &"run"
+autoplay = "default"
+flip_h = true
+
+[node name="detiction" type="Area2D" parent="zombie6" unique_id=343051121]
+position = Vector2(623.00024, 261.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie6/detiction" unique_id=1398100859]
+y_sort_enabled = true
+position = Vector2(-124, -33.000183)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="Timer" type="Timer" parent="zombie6" unique_id=265388944]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie6" unique_id=1858560818]
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="zombie6" unique_id=1597762470]
+offset_left = 573.00024
+offset_top = 167.99995
+offset_right = 633.00024
+offset_bottom = 175.49995
+theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie6" unique_id=1714948395]
+position = Vector2(620, 254.99997)
+shape = SubResource("RectangleShape2D_sww3w")
+
+[node name="zombie7" type="CharacterBody2D" parent="." unique_id=179840421]
+position = Vector2(11736.001, -4.9999084)
+scale = Vector2(0.9999997, 0.99999976)
+collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 8.0
+script = ExtResource("6_ca42v")
+
+[node name="damage area" type="Area2D" parent="zombie7" unique_id=513384721]
+position = Vector2(615.00024, 263.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie7/damage area" unique_id=1265395331]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_264po")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie7" unique_id=1045840385]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie7" unique_id=854228099]
+position = Vector2(624.00024, 254.99997)
+scale = Vector2(0.9758992, 0.5959134)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+animation = &"run"
+autoplay = "default"
+flip_h = true
+
+[node name="detiction" type="Area2D" parent="zombie7" unique_id=1921615970]
+position = Vector2(623.00024, 261.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie7/detiction" unique_id=940380230]
+y_sort_enabled = true
+position = Vector2(-55.15625, -32.000305)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="Timer" type="Timer" parent="zombie7" unique_id=1294626523]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie7" unique_id=1270992651]
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="zombie7" unique_id=20481299]
+offset_left = 573.00024
+offset_top = 155.99995
+offset_right = 633.00024
+offset_bottom = 163.49995
+theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie7" unique_id=1155986665]
+position = Vector2(621.999, 245.99997)
+shape = SubResource("RectangleShape2D_suyxu")
+
+[node name="zombie8" type="CharacterBody2D" parent="." unique_id=2092972841]
+position = Vector2(12322.001, -4.9999084)
+scale = Vector2(0.9999997, 0.99999976)
+collision_layer = 4
+collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 8.0
+script = ExtResource("6_ca42v")
+
+[node name="damage area" type="Area2D" parent="zombie8" unique_id=507385278]
+position = Vector2(615.00024, 263.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie8/damage area" unique_id=1399710691]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_264po")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie8" unique_id=1347758627]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie8" unique_id=974258558]
+position = Vector2(624.00024, 254.99997)
+scale = Vector2(0.9288899, 0.5959134)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+animation = &"run"
+autoplay = "default"
+flip_h = true
+
+[node name="detiction" type="Area2D" parent="zombie8" unique_id=873909385]
+position = Vector2(623.00024, 261.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie8/detiction" unique_id=1182045913]
+y_sort_enabled = true
+position = Vector2(-124, -32.000183)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="Timer" type="Timer" parent="zombie8" unique_id=1578358355]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie8" unique_id=1847727235]
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="zombie8" unique_id=873387135]
+offset_left = 573.00024
+offset_top = 151.99994
+offset_right = 633.00024
+offset_bottom = 159.49994
+theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie8" unique_id=1808097525]
+position = Vector2(614, 245.49994)
+shape = SubResource("RectangleShape2D_sgl2t")
+
+[node name="zombie9" type="CharacterBody2D" parent="." unique_id=2074877380]
+position = Vector2(12584, -4.9999084)
+scale = Vector2(0.9999997, 0.99999976)
+collision_layer = 4
+floor_constant_speed = true
+floor_snap_length = 8.0
+script = ExtResource("6_ca42v")
+
+[node name="damage area" type="Area2D" parent="zombie9" unique_id=1328426361]
+position = Vector2(615.00024, 263.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie9/damage area" unique_id=1537209883]
+position = Vector2(7, -30.00003)
+shape = SubResource("CapsuleShape2D_264po")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="zombie9" unique_id=39385060]
+stream = ExtResource("8_ssvqc")
+volume_db = 4.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie9" unique_id=530849011]
+position = Vector2(624.00024, 254.99997)
+scale = Vector2(1.0015486, 0.68445516)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+animation = &"run"
+autoplay = "default"
+flip_h = true
+
+[node name="detiction" type="Area2D" parent="zombie9" unique_id=1042417613]
+position = Vector2(623.00024, 261.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie9/detiction" unique_id=900449043]
+y_sort_enabled = true
+position = Vector2(-124, -32.000183)
+shape = SubResource("RectangleShape2D_1kice")
+
+[node name="Timer" type="Timer" parent="zombie9" unique_id=1440067152]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zombie9" unique_id=312168698]
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="zombie9" unique_id=1033618980]
+offset_left = 573.00024
+offset_top = 126.99994
+offset_right = 633.00024
+offset_bottom = 134.49994
+theme_override_styles/background = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssvqc")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie9" unique_id=809554071]
+position = Vector2(625.5049, 234.49985)
+shape = SubResource("RectangleShape2D_qouja")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=25772425]
 position = Vector2(-1329, 200)
 collision_mask = 7
+floor_constant_speed = true
+floor_snap_length = 8.0
+platform_floor_layers = 4294967042
 script = ExtResource("6_0tnpc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=2091049997]
-position = Vector2(0.9999895, 2.9999866)
-scale = Vector2(0.117775075, 0.09793977)
+position = Vector2(-7.589357, 8.406258)
+scale = Vector2(0.09976806, 0.084640205)
 sprite_frames = SubResource("SpriteFrames_7mycd")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.2980825
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=166974588]
-position = Vector2(3.0000076, 20)
+z_as_relative = false
+position = Vector2(-6.5, 9)
 scale = Vector2(0.744, 0.32413796)
-shape = SubResource("CircleShape2D_0tnpc")
+shape = SubResource("RectangleShape2D_wljb1")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=113100452]
 position = Vector2(0, 2)
@@ -693,20 +1199,24 @@ wait_time = 2.0
 one_shot = true
 
 [node name="gun" parent="player" unique_id=1934391452 instance=ExtResource("15_rysoc")]
-position = Vector2(16.00002, -3.9999924)
+position = Vector2(2.000019, 1.0000076)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156153298]
 position = Vector2(280, -395)
 collision_layer = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1998171010]
-position = Vector2(10672.156, 774.8125)
+position = Vector2(10128, 814.8125)
 shape = SubResource("RectangleShape2D_kvpfn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1570062989]
 texture_filter = 2
-position = Vector2(15, 819)
+position = Vector2(-868.5, 819)
 shape = SubResource("RectangleShape2D_trtic")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1416096056]
+position = Vector2(16124.5, 819.25)
+shape = SubResource("RectangleShape2D_bt5mj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=586059623]
 
@@ -725,8 +1235,8 @@ offset_right = 215.0
 offset_bottom = 49.0
 theme_override_styles/background = SubResource("StyleBoxFlat_gee14")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0tnpc")
-max_value = 5.0
-value = 5.0
+max_value = 10.0
+value = 10.0
 show_percentage = false
 
 [node name="hp" type="Label" parent="CanvasLayer/Control" unique_id=2108516380]
@@ -772,8 +1282,7 @@ offset_right = 217.0
 offset_bottom = 90.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ir15t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ca42v")
-max_value = 200.0
-value = 200.0
+value = 100.0
 show_percentage = false
 
 [node name="fuel" type="Label" parent="CanvasLayer" unique_id=738598745]
@@ -820,8 +1329,19 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 89
 text = "Mission Passed"
 
+[node name="boss" type="Label" parent="CanvasLayer" unique_id=692511420]
+visible = false
+offset_left = 403.0
+offset_top = 242.0
+offset_right = 897.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.67016923, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "Boss Comming...."
+
 [node name="fuel" type="Area2D" parent="." unique_id=973049101]
-position = Vector2(-945, 13)
+position = Vector2(-1066, 34)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel" unique_id=546474216]
@@ -834,7 +1354,7 @@ position = Vector2(1228, 259)
 shape = SubResource("CircleShape2D_trtic")
 
 [node name="fuel3" type="Area2D" parent="." unique_id=1763819847]
-position = Vector2(-100, 6)
+position = Vector2(-2127, -87)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel3" unique_id=878470350]
@@ -846,8 +1366,99 @@ texture = ExtResource("13_kvuet")
 position = Vector2(7923, 254)
 shape = SubResource("CircleShape2D_trtic")
 
+[node name="fuel4" type="Area2D" parent="." unique_id=1901204790]
+position = Vector2(-71, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel4" unique_id=440514085]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel4" unique_id=393250549]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel5" type="Area2D" parent="." unique_id=195595310]
+position = Vector2(2388, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel5" unique_id=1772400087]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel5" unique_id=1526163750]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel6" type="Area2D" parent="." unique_id=439089351]
+position = Vector2(3665, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel6" unique_id=317907399]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel6" unique_id=2080475685]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel7" type="Area2D" parent="." unique_id=54884926]
+position = Vector2(5469, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel7" unique_id=1190777944]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel7" unique_id=730378113]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel8" type="Area2D" parent="." unique_id=1316528713]
+position = Vector2(7817, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel8" unique_id=1996040365]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel8" unique_id=1806857728]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel10" type="Area2D" parent="." unique_id=578200965]
+position = Vector2(6390, 47)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel10" unique_id=603884838]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel10" unique_id=557774520]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
+[node name="fuel9" type="Area2D" parent="." unique_id=2060337072]
+position = Vector2(8961, -79)
+script = ExtResource("12_kvuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="fuel9" unique_id=82885154]
+position = Vector2(7924, 254)
+scale = Vector2(0.03365624, 0.026060566)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fuel9" unique_id=1441282148]
+position = Vector2(7923, 254)
+shape = SubResource("CircleShape2D_trtic")
+
 [node name="fuel2" type="Area2D" parent="." unique_id=251710830]
-position = Vector2(-930, 6)
+position = Vector2(-930, 37)
 script = ExtResource("12_kvuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="fuel2" unique_id=2060038215]
@@ -859,6 +1470,67 @@ texture = ExtResource("13_kvuet")
 position = Vector2(4966, 255)
 shape = SubResource("CircleShape2D_trtic")
 
+[node name="boss trigger" type="Area2D" parent="." unique_id=526121161]
+position = Vector2(65, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss trigger" unique_id=300189962]
+position = Vector2(14358, 293)
+shape = SubResource("RectangleShape2D_e1j6l")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1290016015]
+
+[node name="boss zombie" type="CharacterBody2D" parent="." unique_id=1746309934]
+position = Vector2(16172, 245)
+script = ExtResource("22_bt5mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss zombie" unique_id=1434436921]
+position = Vector2(63, -40.5)
+shape = SubResource("RectangleShape2D_m4url")
+
+[node name="damage area" type="Area2D" parent="boss zombie" unique_id=1609776104]
+position = Vector2(64, -63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss zombie/damage area" unique_id=1245249357]
+position = Vector2(-5, 15)
+shape = SubResource("CapsuleShape2D_8ool0")
+
+[node name="detiction" type="Area2D" parent="boss zombie" unique_id=868680307]
+position = Vector2(-12, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss zombie/detiction" unique_id=1245442535]
+position = Vector2(22, -31.5)
+shape = SubResource("RectangleShape2D_pr1ej")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="boss zombie" unique_id=760561091]
+position = Vector2(30, -25)
+stream = ExtResource("8_ssvqc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="boss zombie" unique_id=1977107380]
+position = Vector2(54, -58.000008)
+scale = Vector2(1.8203143, 1.9139786)
+sprite_frames = SubResource("SpriteFrames_3hbvx")
+flip_h = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="boss zombie" unique_id=126573261]
+root_node = NodePath("../../zombie7")
+libraries/ = SubResource("AnimationLibrary_twgab")
+
+[node name="ProgressBar" type="ProgressBar" parent="boss zombie" unique_id=1171984220]
+offset_left = -73.0
+offset_top = -211.0
+offset_right = 92.0
+offset_bottom = -184.0
+theme_override_styles/background = SubResource("StyleBoxFlat_q8j3a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ms3bu")
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="boss zombie" unique_id=2121375169]
+wait_time = 0.7
+
+[connection signal="body_entered" from="hole" to="player" method="_on_hole_body_entered"]
+[connection signal="body_entered" from="hole2" to="player" method="_on_hole_body_entered"]
 [connection signal="body_entered" from="finishing" to="finishing" method="_on_body_entered"]
 [connection signal="body_entered" from="zombie/Area2D" to="zombie" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="zombie/Area2D" to="zombie" method="_on_area_2d_body_exited"]
@@ -868,4 +1540,11 @@ shape = SubResource("CircleShape2D_trtic")
 [connection signal="timeout" from="zombie4/Timer" to="zombie4" method="_on_timer_timeout"]
 [connection signal="area_entered" from="zombie2/damage area" to="zombie2" method="_on_damage_area_area_entered"]
 [connection signal="area_entered" from="zombie3/damage area" to="zombie3" method="_on_damage_area_area_entered"]
-[connection signal="body_entered" from="hole" to="player" method="_on_hole_body_entered"]
+[connection signal="area_entered" from="zombie5/damage area" to="zombie5" method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="zombie6/damage area" to="zombie6" method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="zombie7/damage area" to="zombie7" method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="zombie8/damage area" to="zombie8" method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="zombie9/damage area" to="zombie9" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="boss trigger" to="." method="_on_boss_trigger_body_entered"]
+[connection signal="area_entered" from="boss zombie/damage area" to="boss zombie" method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="boss zombie/damage area" to="boss zombie" method="_on_damage_area_body_entered"]

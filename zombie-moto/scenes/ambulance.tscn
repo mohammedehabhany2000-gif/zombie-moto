@@ -48,33 +48,33 @@ shader_parameter/texure4 = SubResource("GradientTexture2D_ir15t")
 shader_parameter/texure5 = SubResource("GradientTexture1D_rysoc")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybntd"]
-radius = 159.23578
-height = 838.9309
+radius = 138.61115
+height = 742.59045
 
 [node name="car" type="StaticBody2D" unique_id=1933005371]
 scale = Vector2(0.21306932, 0.354607)
 constant_linear_velocity = Vector2(0.025, -0.27)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=899695647]
-position = Vector2(-72.42674, -19.0349)
-scale = Vector2(0.8228751, 0.6701234)
+position = Vector2(-145.17305, 54.99049)
+scale = Vector2(0.7195423, 0.5544578)
 texture = ExtResource("1_ybntd")
 
 [node name="static fire" type="Sprite2D" parent="." unique_id=1458092345]
 modulate = Color(2.137626, 2.137626, 2.137626, 1)
 material = SubResource("ShaderMaterial_0tnpc")
-position = Vector2(-483.41077, -90.240746)
+position = Vector2(-544.42377, -28.200228)
 scale = Vector2(259.40894, 225.79959)
 texture = ExtResource("5_4mo7l")
 
 [node name="static fire2" type="Sprite2D" parent="." unique_id=1834793508]
 modulate = Color(2.137626, 2.137626, 2.137626, 1)
 material = SubResource("ShaderMaterial_0tnpc")
-position = Vector2(112.6394, -19.740164)
+position = Vector2(18.773247, 42.30035)
 scale = Vector2(204.30411, 147.18831)
 texture = ExtResource("5_4mo7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=836212679]
-position = Vector2(-37.546467, 2.8200245)
+position = Vector2(-131.41263, 70.50059)
 rotation = 1.3990921
 shape = SubResource("CapsuleShape2D_ybntd")

@@ -5,8 +5,8 @@ extends CharacterBody2D
 
 @onready var detection_area = $detiction
 @onready var damage_area = $"damage area"
-const speed =200
-var health =7
+const speed =160
+var health =20
 var is_dead =false
 var is_live = false
 
@@ -16,7 +16,7 @@ var is_live = false
 
 var player_in = null
 var player_touching=false
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 func _ready():
 	visible =true
 	is_live=false
@@ -47,13 +47,10 @@ func _ready():
 func _process(delta: float) -> void:
 	if is_dead:
 		return
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		velocity.y =0
+		
 	if is_live:
 		velocity.x = -speed
-		
+		move_and_slide() 
 		
 		if has_node("AnimatedSprite2D"):
 			$AnimatedSprite2D.flip_h=true
@@ -61,10 +58,7 @@ func _process(delta: float) -> void:
 				$AnimatedSprite2D.play("run")
 	else:
 		velocity.x =0
-		if has_node("AnimatedSprite2D") and $AnimatedSprite2D.sprite_frames.has_animation("default"):
-			$AnimatedSprite2D.play("default")
-	move_and_slide()
-		
+		move_and_slide()
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	
@@ -143,6 +137,8 @@ func die() -> void:
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.play("death")
 		await $AnimationPlayer.animation_finished
+	
+	get_parent().reset_screen()
 	queue_free()
 func _on_damage_area_area_entered(area: Area2D) -> void:
 	if is_dead:
