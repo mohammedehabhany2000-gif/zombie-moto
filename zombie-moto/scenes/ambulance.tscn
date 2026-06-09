@@ -8,7 +8,7 @@
 
 [sub_resource type="Gradient" id="Gradient_kvpfn"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dinhu"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ybntd"]
 gradient = SubResource("Gradient_kvpfn")
 fill_from = Vector2(0.18461539, 0.82051283)
 fill_to = Vector2(0.015384615, 1)
@@ -16,7 +16,7 @@ fill_to = Vector2(0.015384615, 1)
 [sub_resource type="Gradient" id="Gradient_trtic"]
 offsets = PackedFloat32Array(0.99236643, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ir15t"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f63ls"]
 gradient = SubResource("Gradient_trtic")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
@@ -25,13 +25,13 @@ fill_to = Vector2(1, 1)
 offsets = PackedFloat32Array(0, 0.08396947, 0.23664123, 0.40458015, 0.610687, 0.90839696)
 colors = PackedColorArray(0.38560182, 0.38560182, 0.38560182, 0, 0.7509483, 0.25278953, 0.20906562, 1, 0.9808553, 0.22658296, 0.17558163, 1, 1, 0.40863404, 0, 1, 1.0413129, 0.84753215, 0, 1, 1.0413129, 0.8994082, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rysoc"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hl6l6"]
 gradient = SubResource("Gradient_ca42v")
 
 [sub_resource type="Gradient" id="Gradient_kvuet"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.018000001)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_trtic"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_330mf"]
 gradient = SubResource("Gradient_kvuet")
 fill_from = Vector2(0.37435898, 0.48205128)
 fill_to = Vector2(0, 1)
@@ -41,11 +41,11 @@ shader = ExtResource("2_f63ls")
 shader_parameter/scale = Vector2(4.54, -3.01)
 shader_parameter/speed = Vector2(-3.395, 5.94)
 shader_parameter/texure1 = ExtResource("3_hl6l6")
-shader_parameter/texture2 = SubResource("GradientTexture2D_dinhu")
-shader_parameter/texure6 = SubResource("GradientTexture2D_trtic")
+shader_parameter/texture2 = SubResource("GradientTexture2D_ybntd")
+shader_parameter/texure6 = SubResource("GradientTexture2D_330mf")
 shader_parameter/texure3 = ExtResource("4_330mf")
-shader_parameter/texure4 = SubResource("GradientTexture2D_ir15t")
-shader_parameter/texure5 = SubResource("GradientTexture1D_rysoc")
+shader_parameter/texure4 = SubResource("GradientTexture2D_f63ls")
+shader_parameter/texure5 = SubResource("GradientTexture1D_hl6l6")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybntd"]
 radius = 138.61115
