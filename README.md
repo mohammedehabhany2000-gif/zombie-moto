@@ -18,7 +18,6 @@
 | A / Left Arrow | (move left) |
 | D / Right Arrow | (move right) |
 | R | (reload gun) |
-| Esc | (Pause Game) |
 | Enter | (reload game when won) |
 
 ---
