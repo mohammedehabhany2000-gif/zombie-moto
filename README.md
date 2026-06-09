@@ -5,7 +5,7 @@
 <h1 align="center"> Zombie-Motor </h1>
 
 <p align="center">
-  <strong>It is a 2D game about a man who rides a motorbike across the end of the world, trying to escape from zombies and deliver the antidote to hospitals to treat zombies.</strong>
+  <strong>It is a 2D game about a man who rides a motorbike across the end of the world, trying to escape zombies and deliver the antidote to hospitals to treat zombies.</strong>
 </p>
 
 ---
